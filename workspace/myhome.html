@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyPage</title>
+    <link rel="stylesheet" href="./css/myhome.css" />
+    <!-- 폰트 변경시 css 파일 교체-->
+    <link rel="stylesheet" href="./util/font/dovemayo.css" />
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="boxed">
+        <!-----------------프로필 페이지------------------>
+        <div class="profile">
+          <div class="bookdot">
+            <div class="profile_box">
+              <div class="visitor">
+                <tr name="TODAY">TODAY : 
+                  <td>0</td>
+                </tr>
+                <tr name="TOTAL">TOTAL : 
+                  <td>0</td>
+                </tr>
+              </div>
+              <div class="profile_page">
+                <div class="profile_picture">
+                  <img class="thumnail" src="util/pic/profile.jpg">
+                </div>
+                <div class="introduce">
+                  <textarea wrap=on placeholder="'반복되고 강조되는 소리는 강아지를 불안하게 해요'" readonly></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-----------------메인 페이지------------------>
+        <div class="main">
+          <div>
+            <div class="bookdot2">
+              <div class="main_box">
+                  <h2>강형욱 님의 미니홈피</h2>
+                  <h5>
+                    <a href="file:///D:/gb_ldh_0630/Team%20Project/%EC%A1%B0%EB%B3%84%EA%B3%BC%EC%A0%9C_Y4K/workspace/myhome.html">
+                     http://sayworld/com/KangHyeong-Wook
+                    </a>
+                  </h5>
+                <div class="main_page">
+                  <div class="board_top">
+                    <div class="main_board">
+                      <p>최근게시물</p>
+                        <tr></br>
+                          <td>등록된 게시물이 없습니다 </br>
+                            소식이 뜸한 친구에게 마음의 한마디를</br>
+                            남겨주세요.
+                          </td>
+                        </tr>
+                    </div>
+                    <div class="board_list">
+                      <table>
+                        <tr>
+                          <td>다이어리  0/0</td>
+                          <td>사진첩 0/0</td>
+                        </tr>
+                        <tr>
+                          <td>갤러리  0/0</td>
+                          <td>게시판  0/0</td>
+                        </tr>
+                        <tr>
+                          <td>동영상  0/0</td>
+                          <td>방명록  0/0</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="house_title">
+                    <div class="house_box">
+                      <div class="minihouse">
+                        <img src="./util/room/pocha_room.gif">
+                      </div>
+                      <div class="minimi">
+                        <img src="./util/minimi/test15.gif">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-----------------뮤직 플레이어------------------>
+        <div class="music_box">
+          <div class="audio">
+            <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
+            <p>🎺🎹🎻음악 플레이어 🎷🎸</p>
+            <audio
+             src="./util/music/MCSniper-BK Love.mp3" type="audio/mp3" controls loop>
+           </audio>
+          </div>
+            <div class="shop">
+              <input type="submit" value="상점">
+            </div>
+            <div class="surfing">
+              <input type="submit" value="서핑보드">
+            </div>
+            <div class="logout">
+              <input type="submit" value="로그아웃">
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
