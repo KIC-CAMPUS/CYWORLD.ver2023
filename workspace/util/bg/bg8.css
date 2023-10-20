@@ -1,0 +1,6 @@
+body {
+    background-color: #a3a3a3;
+    background-image: url('bg8.jpg');
+    background-size: cover;
+    min-height: 5vh; 
+  }

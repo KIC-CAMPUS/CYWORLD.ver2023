@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyPage</title>
+    <!-- 폰트 변경시 css 파일 교체-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./util/font/malgungothic.css" />
+    <link rel="stylesheet" href="./css/myhome.css" />
+    <link rel="stylesheet" href="./util/bg/bg3.css"/>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="boxed">
+        <!-- 프로필 페이지 -->
+        <div class="visitor">
+          <tr id="TODAY">TODAY : 
+            <td>0</td>
+          </tr>
+          <tr id="TOTAL">TOTAL : 
+            <td>0</td>
+          </tr>
+        </div>
+        <div class="profile">
+          <div class="bookdot">
+          </div>
+        </div>
+        <!-- 메인 페이지 -->
+        <div class="main">
+          <div class="bookdot2">
+            <div class="main_box">
+              <h2>오스틴 님의 미니홈피</h2>
+              <h5>
+                <a href="file:///D:/gb_ldh_0630/Team%20Project/%EC%A1%B0%EB%B3%84%EA%B3%BC%EC%A0%9C_Y4K/workspace/myhome.html">
+                  http://sayworld/com/KangHyeong-Wook
+                 </a>
+               </h5>
+               <div class="main_page">
+                <!--탭 메뉴-->
+                <div class="container">
+                  <ul class="tabs">
+                    <li class="tab-link current" data-tab="home_tab"><p>홈</p></li>
+                    <li class="tab-link" data-tab="profile_tab"><p>프로필</p></li>
+                    <li class="tab-link" data-tab="board_tab"><p>게시판</p></li>
+                    <li class="tab-link" data-tab="visit_tab"><p>방명록</p></li>
+                    <li class="tab-link" data-tab="setup_tab"><p>관리</p></li>
+                  </ul>
+                  <!--홈 페이지-->
+                  <div id="home_tab" class="tab-content">
+                    <div class="left_box">
+                      <!--프사 프로필-->
+                      <div class="left_page">
+                        <div class="profile_picture">
+                          <img class="thumnail" src="util/pic/ostin.png">
+                        </div>
+                        <div class="introduce">
+                          <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" placeholder="'아이고 사장님 오스틴입니다 오스틴'" readonly></textarea>
+                        </div>
+                        <div class="friend">
+                          <select>
+                            <option value="">★ 일촌 파도타기</option>
+                            <option value="chorong.html">초롱이</option>
+                            <option value="bobbi.html">뽀삐</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <!--우측보드-->
+                    <div class="board_top">
+                      <div class="main_board">
+                        <p>Updated news</p>
+                        <tr></br>
+                          <td>등록된 게시물이 없습니다 </br>
+                            소식이 뜸한 친구에게 마음의 한마디를</br>
+                            남겨주세요.
+                          </td>
+                        </tr>
+                      </div>
+                      <div class="board_list">
+                        <table>
+                          <tr>
+                            <td>다이어리  0/0</td>
+                            <td>사진첩 0/0</td>
+                          </tr>
+                          <tr>
+                            <td>갤러리  0/0</td>
+                            <td>게시판  0/0</td>
+                          </tr>
+                          <tr>
+                            <td>동영상  0/0</td>
+                            <td>방명록  0/0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="house_title">
+                      <h3>Miniroom</h3>
+                      <div class="house_box">
+                        <div class="minihouse">
+                          <img src="./util/room/store_room.gif">
+                        </div>
+                        <div class="minimi">
+                          <img src="./util/minimi/test22.gif">
+                        </div>
+                      </div>
+                    </div>
+                  </div><!--home_tab-->
+                  <!--프로필 페이지-->
+                  <div id="profile_tab" class="tab-content">
+                    <h2>프로필 </h2>
+                    <div class="left_box">
+                      <!--왼쪽 페이지-->
+                      <div class="left_page">
+                        <div class="profile_picture">
+                          <img class="thumnail" src="util/pic/ostin.png">
+                        </div>
+                        <div class="introduce">
+                          <textarea wrap=on placeholder="'아이고 사장님 오스틴입니다 오스틴'" readonly></textarea>
+                        </div>
+                        <div class="friend">
+                          <select>
+                            <option value="">★ 일촌 파도타기</option>
+                            <option value="chorong.html">초롱이</option>
+                            <option value="bobbi.html">뽀삐</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="right_box">
+                      <div>
+                        <input id="insert_btn" type="submit" value="수정하기">
+                        <div class="info_board">
+                          <textarea readonly>아이고 사장님 이런걸 다 주시고 감사합니다.
+                          </textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!--profile_tab-->
+                  <!--게시판 페이지-->
+                  <div id="board_tab" class="tab-content">
+                    <h2>게시판</h2>
+                    <div class="left_box">
+                      <!--왼쪽 페이지-->
+                      <div class="left_page">
+                        왼쪽 내용을 입력하세요
+                      </div>
+                    </div>
+                  </div><!--board_tab-->
+                  <!--방명록 페이지-->
+                  <div id="visit_tab" class="tab-content">
+                    <h2>방명록</h2>
+                    <div class="left_box">
+                      <!--왼쪽 페이지-->
+                      <div class="left_page">
+                        내용을 입력하세요
+                      </div>
+                    </div>
+                  </div><!--visit_tab-->
+                  <!--관리 페이지-->
+                  <div id="setup_tab" class="tab-content">
+                    <h2>관리</h2>
+                    <div class="left_box">
+                      <!--왼쪽 페이지-->
+                      <div class="left_page">
+                        <div>
+                          <ul>미니홈피 관리
+                            
+                            <li>기본정보</li>
+                            <li>메뉴</li>
+                            <li>일촌 관리</li>
+                          </ul>
+                          <ul>
+                            <li>아이템 설정 관리</li>
+                            <li>관리자 정보</li>
+                          </ul>
+                        </div>
+                      </div><!--left_page-->
+                    </div>
+                  </div><!--setup_tab-->
+                </div><!--container-->
+              </div><!--main_page-->
+            </div>
+          </div>
+        </div>
+        <!-- 뮤직 플레이어 -->
+        <div class="music_box">
+          <div class="audio">
+            <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
+            <p>🎺🎹🎻Music Player 🎷🎸</p>
+            <MARQUEE scrolldelay="50">프리스타일-Y</MARQUEE>
+            <audio loop controls autoplay>
+              <source src="./util/music/프리스타일-Y.mp3" type="audio/mp3">
+            </audio>
+          </div>
+          <div class="shop">
+            <input type="submit" value="상점">
+          </div>
+          <div class="surfing">
+            <input type="submit" value="서핑보드">
+          </div>
+        </div>
+        <!-- 로그아웃 버튼 -->
+        <div class="logout" id="logoutButton">
+          <input type="submit" value="로그아웃">
+        </div>
+      </div>
+    </div>
+    <!-- 외부 자바스크립트 파일 링크 -->
+    <script src="./js/myhome.js"></script>
+  </body>
+</html>
