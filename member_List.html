@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function moveMember() {
+         window.open("member_Check.html", "c", "width=385, height=510, left=100, top=50");
+         self.close();
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 310px;
+            height: 375px;
+            border: 1px solid #bcbcbc;
+        }
+        .a {
+            background-image: url( "./util/pic/member_list.jpg" );
+        }
+        .b{
+            width: 300px;
+            margin: 0 auto;
+            position: relative;
+            left: 10px;
+            top: 50px;
+            font-size: 12px;
+        }
+        .b td{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="a">
+        <table class="b">
+            <tr>
+                <td onclick="moveMember();">
+                    초롱이 님이 일촌 신청을 하셨습니다.
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

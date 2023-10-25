@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일촌신청</title>
+    <script>
+      function Yes() {
+       window.close();
+      }
+      function No(){
+        window.close();
+      }
+  </script>
+</head>
+<style>
+    
+    .c {
+      width: 360px;
+      height: 485px;
+      border: 1px solid #bcbcbc;
+      background-image: url("./util/pic/member_check.jpg" );
+    }
+    .c a{
+    position: absolute;
+    left: 95px;
+    top: 95px;
+    font-size: 13px;
+    z-index: 2;
+    }
+    .c .minimi img{
+      border: 0;
+      height: 100px;
+      width: 100px;
+    }
+    .c textarea{
+      width: 280px;
+      height: 54px;
+      margin-left: 10px;
+      margin-top: 25px;
+      border: 0;
+      resize: none;
+      background: #fafafa;
+    }
+    .c textarea:focus{
+      outline:none;
+    }
+    .btn{
+     position: absolute;
+     right: 150px;
+     bottom: 60px;
+     z-index: 2;
+     cursor: pointer;
+    }
+    .btn img{
+      margin: 0 5px;
+    }
+    #who{
+    font-size: 12px;
+    position: absolute;
+    left: 120px;
+    top: 40px;
+    }
+</style>
+<body>
+    <div class="c">
+      <div>
+        <a href="chorong.html">초롱이</a>
+      </div>
+      <div style="position: absolute;left: 40px; top: 100px;">
+        <div class="minimi">
+          <img src="./util/minimi/test18.gif">
+        </div>
+        <div id="who">
+          <b>초롱이 </b>님께서 <b>채연 </b>님에게</br>
+          <b>일촌맺기 </b>를 희망합니다.
+        </div>
+        <textarea readonly>하이하이</textarea>
+      </div>
+      <div class="btn">
+        <img src="./util/pic/yesBtn.jpg" onclick="Yes();">
+        <img src="./util/pic/noBtn.jpg" onclick="No();">
+      </div>
+    </div>
+</body>
+</html>
