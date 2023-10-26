@@ -37,13 +37,13 @@
                 </div>
                 <div class="myinfo">
                   <p id="name">채연</p>
-                  <img id="gender" src="util/pic/man.jpg">
+                  <img id="gender" src="util/pic/girl.jpg">
                   <p id="birth">1980-10-23</p>
                 </div>
                 <img id="member_check" src="util/pic/member_check_btn.jpg"
                 onclick="showPopup();">
                 <div class="friend">
-                  <select>
+                  <select onchange="if(this.value) location.href=(this.value);">
                     <option value="">★ 일촌 파도타기</option>
                     <option value="chorong.html">초롱이</option>
                     <option value="bobbi.html">뽀삐</option>
@@ -87,7 +87,7 @@
                           </td>
                         </tr>
                       </div>
-                      <div class="board_list">
+                      <div class="board_new">
                         <table>
                           <tr>
                             <td>다이어리  0/0</td>
@@ -149,7 +149,7 @@
                   <!--게시판 탭-->
                   <div id="board_tab" class="tab-content">
                     <h2>게시판</h2>
-                      <div style="float: right; width: 100px; margin-bottom: 10px; cursor: pointer;" >
+                      <div style="float: right; width: 100px; margin-bottom: 10px;" >
                       <img src="./util/pic/writeBtn.png" onclick="Write();">		
                       </div>
                       <div class="boarsd">
@@ -162,8 +162,8 @@
                             <td width="10%"><b>조회</b></td>
                           </tr>
                         </table>
-                          <table >
-                            <tr valign="middle">
+                          <table class="board">
+                            <tr>
                               <td>
                               </td>
                             </tr>

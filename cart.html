@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>مثال الألبوم · Bootstrap v5.3</title>
+    <title>장바구니</title>
 
     <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/album-rtl/">
 
@@ -28,6 +28,14 @@
 
 
     <style>
+      @font-face {
+      font-family: 'NeoDunggeunmo';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -109,23 +117,30 @@
 		display: flex;
 		justify-content: center;	
 	}
-	.navbar-nav .nav-link {
+  .nav-link {
  		font-weight: bold; /* 볼드체로 설정 */
-  		font-size: 30px; /* 원하는 크기로 조절 */
- 		margin-right: 145px; /* 원하는 간격으로 조절 */
-		text-align: right;
-		padding-top: 50px; /* 네비게이션 바 상단 여백을 설정합니다 */
-  		padding-bottom: 5px; /* 네비게이션 바 하단 여백을 설정합니다 */
+  		font-size: 27px; /* 원하는 크기로 조절 */
+ 		margin-right: 70px; /* 원하는 간격으로 조절 */
+     font-family: 'NeoDunggeunmo', sans-serif;
+	
         
 		}
 
+    .navbar-nav {
+      padding-top: 50px; /* 네비게이션 바 상단 여백을 설정합니다 */
+  		padding-bottom: 4px; /* 네비게이션 바 하단 여백을 설정합니다 */
+      margin-right: 330px;  
+      text-align: center;
+    }
+
+
 		.banner {
- 	 	text-align: center;
- 	 	display: flex;
+ 	  	text-align: center;
+ 	 	  display: flex;
   		align-items: center;
   		justify-content: center;
   		padding: 20px; /* Add padding to the top and bottom */
-		margin-top: 170px; /* 네비게이션 바와 배너 이미지 사이의 여백을 설정합니다 */
+		  margin-top: 170px; /* 네비게이션 바와 배너 이미지 사이의 여백을 설정합니다 */
  
 		}
 
@@ -158,6 +173,8 @@
     height: 375px; 
     width: 190px;
     font-size: 30px;
+    font-family: 'NeoDunggeunmo', sans-serif;
+	
 }
 
 
@@ -226,7 +243,8 @@ table {
   border-top: solid 1.5px black;
   border-collapse: collapse;
   width: 100%;
-  font-size: 27px;
+  font-size: 21px;
+  font-family: 'NeoDunggeunmo', sans-serif;
 }
 
 thead {
@@ -235,7 +253,8 @@ thead {
 }
 
 tbody {
-  font-size: 30px;
+  font-size: 24px;
+
 
   
 }
@@ -251,6 +270,7 @@ td {
 
 .cart__list__detail :nth-child(3) a {
   font-size: 30px;
+  font-family: 'NeoDunggeunmo', sans-serif;
 }
 
 .cart__list__detail :nth-child(3) p {
@@ -288,6 +308,7 @@ td {
   font-size: 15px;
   border: lightgrey solid 1px;
   padding: 7px;
+  font-family: 'NeoDunggeunmo', sans-serif;
 }
 
 .cart__list__detail :nth-child(4),
@@ -329,6 +350,7 @@ td {
   font-size: 23px;
   margin: auto;
   border-radius: 5px;
+  font-family: 'NeoDunggeunmo', sans-serif;
 }
 
 .cart__bigorderbtn.left {
@@ -342,7 +364,25 @@ td {
   border: none;
 }
 
+.cart__total {
+    margin-left: 1290px;
+    font-size:  25px;
+    padding-top: 20px;
+    font-weight: bold;
+    position: flex;
+    font-family: 'NeoDunggeunmo', sans-serif;
 
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.image-container img {
+    align-content: center;
+}
 	</style>
 
     
@@ -364,45 +404,13 @@ td {
       </symbol>
     </svg>
 
-    <!-- <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div> -->
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top" aria-label="Tenth navbar example">
-		<div class="container-fluid">
-		  <!-- 로고를 상단에 배치 -->
-		  <a class="navbar-brand" href="#">SAY WORLD 상점</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top" aria-label="Tenth navbar example">
+      <div class="container-fluid">
+        <!-- 로고를 상단에 배치 -->
+        <a class="navbar-brand" href="#"style="display: flex; align-items: center;">
+          <img src="./util/pic/store.png" alt="SAY WORLD 상점" style="width: 450px; height: auto;">
+      </a>
 		  
 		  <!-- 토글 버튼 -->
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -413,7 +421,7 @@ td {
 		  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
 			  <li class="nav-item">
-				<a class="nav-link" href="memberList.html">미니미</a>
+				<a class="nav-link" href="minimi.html">미니미</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="music.html">음악</a>
@@ -425,11 +433,9 @@ td {
 				<a class="nav-link" href="font.html">글꼴</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">마이룸</a>
+				<a class="nav-link" href="miniroom.html">미니룸</a>
 			  </li>
-              <!-- <li class="nav-item">
-				<a class="nav-link" href="#">도토리</a>
-			  </li> -->
+          <div class="dropdown text-end">
 			</ul>
 		  </div>
           <div class="dropdown text-end">
@@ -441,7 +447,7 @@ td {
               <li><a class="dropdown-item" href="#">장바구니</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">도토리</a></li>
-              <li><a><img src="avatar/New Piskel (9).png" alt="도토리" class="dotori-image">100</a></li>
+              <li><a><img src="./util/pic/dotori.png" alt="도토리" class="dotori-image">100</a></li>
               <li>
                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">도토리 구매</a>
               </li>
@@ -474,17 +480,42 @@ td {
 <main>
 
   </main>
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+ <!-- Modal -->
+ <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 	<div class="modal-dialog">
 	  <div class="modal-content">
 		<div class="modal-header">
 		  <h1 class="modal-title fs-5" id="staticBackdropLabel">도토리 구매하기</h1>
 		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 		</div>
-		<div class="modal-body">
-		  도토리 100개 도토리 50개 도토리 10개
-		</div>
+        <div class="modal-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>도토리 개수</th>
+                        <th>가격</th>
+                        <th>선택</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>도토리 100개</td>
+                        <td>10,000</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>도토리 50개</td>
+                        <td>5,000</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>도토리 10개</td>
+                        <td>1,000</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 		<div class="modal-footer">
             <button type="button" class="btn btn-primary">구매하기</button>
 		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
@@ -548,13 +579,43 @@ td {
                         <td style="width: 35%;"><span class="price">도토리 10개</span><br>
                             <button class="cart__list__orderbtn">주문하기</button>
                         </td>
-                        
                     </tr>
+                    <tr class="cart__list__detail">
+                      <td style="width: 1%;"><input type="checkbox"></td>
+                      <td style="width: 20%;">
+                          <img src="music/Memoryresemble.jpg" alt="magic mouse" style="width: 200px; height: auto;">
+                      </td>
+                      <td style="width: 58%;">
+                          <p>박효신 - 추억은 사랑을 닮아</p>
+                          <!-- <span class=" price">88,900원</span> -->
+                      </td>
+                      <!-- <td class="cart__list__option" style="width: 27%;">
+                          <p>상품 주문 수량: 1개</p>
+                      </td> -->
+                      <td style="width: 35%;"><span class="price">도토리 10개</span><br>
+                          <button class="cart__list__orderbtn">주문하기</button>
+                      </td>
+                  </tr>
+                  <tr class="cart__list__detail">
+                    <td style="width: 1%;"><input type="checkbox"></td>
+                    <td style="width: 20%;">
+                        <img src="background/backgorund3.jpg" alt="magic mouse" style="width: 200px; height: auto;">
+                    </td>
+                    <td style="width: 58%;">
+                        <p>비 오는 숲 어딘가</p>
+                        <!-- <span class=" price">88,900원</span> -->
+                    </td>
+                    <!-- <td class="cart__list__option" style="width: 27%;">
+                        <p>상품 주문 수량: 1개</p>
+                    </td> -->
+                    <td style="width: 35%;"><span class="price">도토리 10개</span><br>
+                        <button class="cart__list__orderbtn">주문하기</button>
+                    </td>
+                </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="3"><input type="checkbox"> <button class="cart__list__optionbtn">선택상품 삭제</button>
-                            <button class="cart__list__optionbtn">선택상품 찜</button>
                         </td>
                         <td></td>
                         <td></td>
@@ -563,6 +624,9 @@ td {
                 </tfoot>
             </form>
         </table>
+        <div class="cart__total">
+          <p>총 결제 금액: <span id="totalAmount">40</span> 도토리</p>
+        </div>
         <div class="cart__mainbtns">
             <button class="cart__bigorderbtn left">쇼핑 계속하기</button>
             <button class="cart__bigorderbtn right">주문하기</button>
@@ -589,16 +653,6 @@ td {
   <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
 </main>
-
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">عد إلى الأعلى</a>
-    </p>
-    <p class="mb-1">مثال الألبوم هو © Bootstrap ، ولكن يرجى تنزيله وتخصيصه لنفسك!</p>
-    <p class="mb-0">جديد على Bootstrap؟ <a href="/"> تفضل بزيارة الصفحة الرئيسية </a> أو اقرأ <a href="/docs/5.3/getting-started/introduction/ "> دليل البدء </a>.</p>
-  </div>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 
@@ -623,5 +677,58 @@ function topFunction() {
   document.body.scrollTop = 0; 
   document.documentElement.scrollTop = 0; 
 }
+
+
+
+
+        // JavaScript를 사용하여 총합을 계산하고 표시합니다.
+        const checkboxes = document.querySelectorAll('.cart__list__detail input[type="checkbox"]');
+        const totalAmountSpan = document.getElementById('totalAmount');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateTotalAmount);
+        });
+
+        function updateTotalAmount() {
+            let totalAmount = 0;
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const priceSpan = checkbox.parentElement.nextElementElement.querySelector('.price');
+                    if (priceSpan) {
+                        const amount = parseInt(priceSpan.innerText, 10);
+                        totalAmount += amount;
+                    }
+                }
+            });
+            totalAmountSpan.innerText = totalAmount;
+        }
+
+
+
+        
+    // 선택상품 삭제 버튼을 클릭할 때 실행되는 함수
+    function deleteSelectedItems() {
+        // 모든 체크박스 요소를 선택합니다.
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+        // 선택된 상품을 저장할 배열
+        const selectedItems = [];
+        
+        // 모든 체크박스를 순회하면서 선택된 것을 찾습니다.
+        checkboxes.forEach((checkbox, index) => {
+            if (checkbox.checked) {
+                // 선택된 체크박스의 상품을 삭제할 수 있는 로직을 추가합니다.
+                // 여기에서는 간단하게 선택된 체크박스를 숨기는 것으로 대체합니다.
+                const row = checkbox.closest('.cart__list__detail');
+                row.style.display = 'none';
+            }
+        });
+    }
+    
+    // 선택상품 삭제 버튼 클릭 시 deleteSelectedItems 함수 실행
+    const deleteButton = document.querySelector('.cart__list__optionbtn');
+    deleteButton.addEventListener('click', deleteSelectedItems);
+
+
 </script>
 </html>

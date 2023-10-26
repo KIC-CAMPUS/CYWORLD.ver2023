@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>مثال الألبوم · Bootstrap v5.3</title>
+    <title>세이월드 상점</title>
 
     <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/album-rtl/">
 
@@ -28,6 +28,14 @@
 
 
     <style>
+
+      @font-face {
+      font-family: 'NeoDunggeunmo';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -102,30 +110,37 @@
 
 	  .bg-custom{
       background-color: #0fabc6; /* 원하는 배경색을 지정하세요 */
-	  height: 170px;
+	  height: 150px;
     }
 
 	.justify-content-center {
 		display: flex;
 		justify-content: center;	
 	}
-	.navbar-nav .nav-link {
+  .nav-link {
  		font-weight: bold; /* 볼드체로 설정 */
-  		font-size: 30px; /* 원하는 크기로 조절 */
- 		margin-right: 145px; /* 원하는 간격으로 조절 */
-		text-align: center;
-		padding-top: 50px; /* 네비게이션 바 상단 여백을 설정합니다 */
-  		padding-bottom: 5px; /* 네비게이션 바 하단 여백을 설정합니다 */
+  		font-size: 27px; /* 원하는 크기로 조절 */
+ 		margin-right: 70px; /* 원하는 간격으로 조절 */
+     font-family: 'NeoDunggeunmo', sans-serif;
+	
+        
 		}
+
+    .navbar-nav {
+      padding-top: 50px; /* 네비게이션 바 상단 여백을 설정합니다 */
+  		padding-bottom: 4px; /* 네비게이션 바 하단 여백을 설정합니다 */
+      margin-right: 330px;  
+      text-align: center;
+    }
 
 		.banner {
  	 	text-align: center;
  	 	display: flex;
-  		align-items: center;
-  		justify-content: center;
-  		padding: 20px; /* Add padding to the top and bottom */
+  	align-items: center;
+  	justify-content: center;
+  	padding: 20px; /* Add padding to the top and bottom */
 		margin-top: 170px; /* 네비게이션 바와 배너 이미지 사이의 여백을 설정합니다 */
- 
+    font-family: 'NeoDunggeunmo', sans-serif;
 		}
 
 .banner img {
@@ -152,7 +167,35 @@
 #myBtn:hover {
   background-color: blue; /* Add a dark-grey background on hover */
 }
-	
+
+.dropdown-menu {
+    height: 360px; 
+    width: 190px;
+    font-size: 30px;
+    font-family: 'NeoDunggeunmo', sans-serif;
+}
+
+
+  .d-block  {
+
+    margin-left: 30px;
+  }
+
+  .collapse {
+
+    margin-left: 140px; 
+  }
+
+  .dotori-image {
+  width: 50px; /* 원하는 너비로 조절 */
+  height: 50px; /* 원하는 높이로 조절 */
+  margin-left: 10px; 
+}
+
+.container {
+  font-family: 'NeoDunggeunmo', sans-serif;
+}
+
 	</style>
 
     
@@ -174,45 +217,13 @@
       </symbol>
     </svg>
 
-    <!-- <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
-              id="bd-theme"
-              type="button"
-              aria-expanded="false"
-              data-bs-toggle="dropdown"
-              aria-label="Toggle theme (auto)">
-        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
-        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
-            Light
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
-            Dark
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-        <li>
-          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
-            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
-            Auto
-            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
-          </button>
-        </li>
-      </ul>
-    </div> -->
-
+  
 	<nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top" aria-label="Tenth navbar example">
 		<div class="container-fluid">
 		  <!-- 로고를 상단에 배치 -->
-		  <a class="navbar-brand" href="#">SAY WORLD 상점</a>
+      <a class="navbar-brand" href="#"style="display: flex; align-items: center;">
+        <img src="./util/pic/store.png" alt="SAY WORLD 상점" style="width: 450px; height: auto;">
+    </a>
 		  
 		  <!-- 토글 버튼 -->
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
@@ -223,7 +234,7 @@
 		  <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 			<ul class="navbar-nav">
 			  <li class="nav-item">
-				<a class="nav-link" href="memberList.html">미니미</a>
+				<a class="nav-link" href="minimi.html">미니미</a>
 			  </li>
 			  <li class="nav-item">
 				<a class="nav-link" href="music.html">음악</a>
@@ -232,19 +243,56 @@
 				<a class="nav-link" href="background.html">배경</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">글꼴</a>
+				<a class="nav-link" href="font.html">글꼴</a>
 			  </li>
 			  <li class="nav-item">
-				<a class="nav-link" href="#">마이룸</a>
+				<a class="nav-link" href="miniroom.html">미니룸</a>
 			  </li>
+              
 			</ul>
 		  </div>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-body-emphasis text-decoration-underline dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="./util/minimi/test11.gif" alt="mdo" width="140" height="140" class="rounded">
+            </a>
+            <ul class="dropdown-menu text-small">
+              <li><a class="dropdown-item" href="#">미니홈피</a></li>
+              <li><a class="dropdown-item" href="cart.html">장바구니</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">도토리</a></li>
+              <li><a><img src="./util/pic/dotori.png" alt="도토리" class="dotori-image">100</a></li>
+              <li>
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">도토리 구매</a>
+              </li>
+     
+  
+<!-- Modal -->
+<div class="modal fade" id="#staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">도토리 구매</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- 모달 내용을 이곳에 추가 -->
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary">구매하기</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+         </div>
+      </div>
+    </div>
+  </div>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">로그아웃</a></li>
+            </ul>
+          </div>
 		</div>
-	  </nav>
-
+	  </nav>      
 <main>
 <section class="banner">
-    <img src="avatar/banner.PNG" alt="Banner Image">
+    <img src="./util/pic/banner.PNG" alt="Banner Image">
   </section>
   <section class="py-5 text-center container">
     <div class="row py-lg-5">
@@ -266,8 +314,8 @@
 		  도토리 100개 도토리 50개 도토리 10개
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-		  <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-primary">구매하기</button>
+		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
 		</div>
 	  </div>
 	</div>
@@ -305,6 +353,7 @@
 		  장바구니에 추가되었습니다!
 		</div>
 		<div class="modal-footer">
+      <a href= "cart.html"><button type="button" class="btn btn-info">장바구니 바로가기</button></a>
 		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 		</div>
 	  </div>
@@ -621,19 +670,7 @@
   <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
 </main>
-
-<footer class="text-body-secondary py-5">
-  <div class="container">
-    <p class="float-end mb-1">
-      <a href="#">عد إلى الأعلى</a>
-    </p>
-    <p class="mb-1">مثال الألبوم هو © Bootstrap ، ولكن يرجى تنزيله وتخصيصه لنفسك!</p>
-    <p class="mb-0">جديد على Bootstrap؟ <a href="/"> تفضل بزيارة الصفحة الرئيسية </a> أو اقرأ <a href="/docs/5.3/getting-started/introduction/ "> دليل البدء </a>.</p>
-  </div>
-</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
-
     </body>
 	<script>
 

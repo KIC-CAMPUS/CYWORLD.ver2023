@@ -5,14 +5,13 @@
     <title>MyPage</title>
     <!-- 폰트 변경시 css 파일 교체-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="./util/font/malgungothic.css" />
     <link rel="stylesheet" href="./css/myhome.css" />
-    <link rel="stylesheet" href="./util/bg/bg3.css"/>
+    <link rel="stylesheet" href="./util/font/maplestory.css" />
+    <link rel="stylesheet" href="./util/bg/bg9.css"/>
   </head>
   <body>
     <div class="boxes">
       <div class="boxed">
-        <!-- 프로필 페이지 -->
         <div class="visitor">
           <tr id="TODAY">TODAY : 
             <td>0</td>
@@ -23,16 +22,45 @@
         </div>
         <div class="profile">
           <div class="bookdot">
+            <div class="left_box">
+              <!--좌측 페이지-->
+              <div class="left_page">
+                <div class="profile_picture">
+                  <img class="thumnail" src="util/pic/chorong.jpg">
+                </div>
+                <div class="introduce">
+                  <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
+                  placeholder="자기소개가 없습니다." readonly>안녕하세요 초롱이 입니다.</textarea>
+                </div>
+                <div class="logo">
+                  <img  src="util/pic/logo(black).png">
+                </div>
+                <div class="myinfo">
+                  <p id="name">초롱이</p>
+                  <img id="gender" src="util/pic/man.jpg">
+                  <p id="birth">1999-11-08</p>
+                </div>
+                <img id="member_check" src="util/pic/member_check_btn.jpg"
+                onclick="showPopup();">
+                <div class="friend">
+                  <select onchange="if(this.value) location.href=(this.value);">
+                    <option value="">★ 일촌 파도타기</option>
+                    <option value="myhome.html">채연</option>
+                    <option value="bobbi.html">뽀삐</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <!-- 메인 페이지 -->
         <div class="main">
           <div class="bookdot2">
             <div class="main_box">
-              <h2>채연 님의 미니홈피</h2>
+              <h2>초롱이 님의 미니홈피</h2>
               <h5>
-                <a href="file:///D:/gb_ldh_0630/Team%20Project/%EC%A1%B0%EB%B3%84%EA%B3%BC%EC%A0%9C_Y4K/workspace/myhome.html">
-                  http://sayworld/com/Chaeyeon
+                <a href="file:///D:/gb_ldh_0630/Team%20Project/%EC%A1%B0%EB%B3%84%EA%B3%BC%EC%A0%9C_Y4K/workspace/chorong.html">
+                  http://sayworld/com/Chorong
                  </a>
                </h5>
                <div class="main_page">
@@ -47,46 +75,19 @@
                   </ul>
                   <!--홈 탭-->
                   <div id="home_tab" class="tab-content">
-                    <div class="left_box">
-                      <!--프사 프로필-->
-                      <div class="left_page">
-                        <div class="profile_picture">
-                          <img class="thumnail" src="util/pic/chorong.jpg">
-                        </div>
-                        <div class="introduce">
-                          <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                          placeholder="자기소개가 없습니다." readonly>선수가 사람때리면 안돼</textarea>
-                        </div>
-                        <div class="logo">
-                          <img  src="util/pic/logo(black).png">
-                        </div>
-                        <div class="myinfo">
-                          <p id="name">초롱이</p>
-                          <img id="gender" src="util/pic/man.jpg">
-                          <p id="birth">1999-05-25</p>
-                        </div>
-                        <img id="member_check" src="util/pic/member_check_btn.jpg">
-                        <div class="friend">
-                          <select>
-                            <option value="">★ 일촌 파도타기</option>
-                            <option value="chorong.html">초롱이</option>
-                            <option value="bobbi.html">뽀삐</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
                     <!--우측보드-->
+                   <div class="home_board">
                     <div class="board_top">
                       <div class="main_board">
                         <p>Updated news</p>
-                        <tr></br>
+                        <tr>
                           <td>등록된 게시물이 없습니다 </br>
                             소식이 뜸한 친구에게 마음의 한마디를</br>
                             남겨주세요.
                           </td>
                         </tr>
                       </div>
-                      <div class="board_list">
+                      <div class="board_new">
                         <table>
                           <tr>
                             <td>다이어리  0/0</td>
@@ -103,53 +104,30 @@
                       <h3>Miniroom</h3>
                       <div class="house_box">
                         <div class="minihouse">
-                          <img src="./util/room/pink2_room.gif">
+                          <img src="./util/room/pocha_room.gif">
                         </div>
                         <div class="minimi">
-                          <img src="./util/minimi/test16.gif">
+                          <img src="./util/minimi/test4.gif">
                         </div>
                       </div>
                     </div>
+                    <div class="friend_comment">
+                    </div>
+                  </div>
                   </div><!--home_tab-->
                   <!--프로필 탭-->
                   <div id="profile_tab" class="tab-content">
                     <h2>프로필 </h2>
-                    <div class="left_box">
-                      <!--프사 프로필-->
-                      <div class="left_page">
-                        <div class="profile_picture">
-                          <img class="thumnail" src="util/pic/chorong.jpg">
-                        </div>
-                        <div class="introduce">
-                          <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                          placeholder="자기소개가 없습니다." readonly>선수가 사람때리면 안돼</textarea>
-                        </div>
-                        <div class="logo">
-                          <img  src="util/pic/logo(black).png">
-                        </div>
-                        <div class="myinfo">
-                          <p id="name">초롱이</p>
-                          <img id="gender" src="util/pic/man.jpg">
-                          <p id="birth">1999-05-25</p>
-                        </div>
-                        <img id="member_check" src="util/pic/member_check_btn.jpg">
-                        <div class="friend">
-                          <select>
-                            <option value="">★ 일촌 파도타기</option>
-                            <option value="chorong.html">초롱이</option>
-                            <option value="bobbi.html">뽀삐</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
                     <!--우측 페이지-->
                     <div class="right_box">
                       <div>
                         <img id="insert_btn" src="util/pic/editBtn.jpg" alt="수정하기" onclick="" >
                         <div class="info_board">
-                          <textarea id="auto_textarea" onkeyup="autoResize(this)" 
-                          onkeydown="autoResize(this)" rows="3"
-                          placeholder="프로필을 작성해 주세요" readonly></textarea>
+                          <textarea 
+                          onkeyup="autoResize(this)" 
+                          onkeydown="autoResize(this)"
+                          rows="15"
+                          placeholder="프로필을 작성해 주세요" readonly>안녕 난 초롱이야.</textarea>
                         </div>
                       </div>
                     </div>
@@ -157,34 +135,26 @@
                   <!--게시판 탭-->
                   <div id="board_tab" class="tab-content">
                     <h2>게시판</h2>
-                    <div class="left_box">
-                      <!--프사 프로필-->
-                      <div class="left_page">
-                        <div class="profile_picture">
-                          <img class="thumnail" src="util/pic/chorong.jpg">
-                        </div>
-                        <div class="introduce">
-                          <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                          placeholder="자기소개가 없습니다." readonly>선수가 사람때리면 안돼</textarea>
-                        </div>
-                        <div class="logo">
-                          <img  src="util/pic/logo(black).png">
-                        </div>
-                        <div class="myinfo">
-                          <p id="name">초롱이</p>
-                          <img id="gender" src="util/pic/man.jpg">
-                          <p id="birth">1999-05-25</p>
-                        </div>
-                        <img id="member_check" src="util/pic/member_check_btn.jpg">
-                        <div class="friend">
-                          <select>
-                            <option value="">★ 일촌 파도타기</option>
-                            <option value="chorong.html">초롱이</option>
-                            <option value="bobbi.html">뽀삐</option>
-                          </select>
-                        </div>
+                      <div style="float: right; width: 100px; margin-bottom: 10px;" >
+                      <img src="./util/pic/writeBtn.png" onclick="Write();">		
                       </div>
-                    </div>
+                      <div class="boarsd">
+                        <table class="board_view">	
+                          <tr>
+                            <td width="5%"></td>
+                            <td width="30%"><b>제목</b></td>
+                            <td width="15%"><b>작성자</b></td>
+                            <td width="20%"><b>작성일</b></td>
+                            <td width="10%"><b>조회</b></td>
+                          </tr>
+                        </table>
+                          <table class="board">
+                            <tr>
+                              <td>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
                   </div><!--board_tab-->
                   <!--방명록 탭-->
                   <div id="visit_tab" class="tab-content">
@@ -198,69 +168,86 @@
                           <div class="visit_write">
                             <textarea></textarea>
                           </div>
-                          <p>비밀로하기</p>
                           <div class="visit_board_btn">
-                            <input type="checkbox"></input>
+                            <input type="checkbox" value="비밀로하기"><p>비밀로하기</p></input>
                             <input type="submit" id="ment" value="확인">
                           </div>
                         </div>
                       </div>
-                      <div class="visit_board_list">
-                        <p>No.1</p>
-                        <a href="chorong.html">초롱이</a>
+                      <div class="visit_board_info">
+                        <p style="margin-left: 15px;">No.1</p>
+                        <a style="margin-left:10px;" href="myhome.html">채연</a>
                         <img id="house_icon" src="util/pic/house.jpg">
-                        <p>(2023-10-23) </p>
-                        <a>비밀로하기 ㅣ 삭제</a>
+                        <p style="margin:0 10px;">(2023-10-23) </p>
+                        <a style="margin-left: 370px;">비밀로하기</a>
+                        <a style="margin-left: 10px;">삭제</a>
                       </div>
-                    </div>
-                    <div class="left_box">
-                      <!--프사 프로필-->
-                      <div class="left_page">
-                        <div class="profile_picture">
-                          <img class="thumnail" src="util/pic/profile2.png">
+                       <div class="visit_board_list">
+                         <div class="visit_board_view">
+                            <div class="visit_minimi">
+                              <img src="./util/minimi/test16.gif">
+                            </div>
+                            <div class="visitor_comment">
+                              <textarea readonly>잘 지내니</textarea>
+                            </div>
+                            <div class="user_comment">
+                              <textarea></textarea>
+                            </div>
+                            <input type="submit" id="user_comment_btn" value="확인">
+                         </div>
                         </div>
-                        <div class="introduce">
-                          <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                          placeholder="자기소개가 없습니다." readonly>난... ㄱ ㅏ끔... 눈물을 흘린 ㄷ ㅏ ....</textarea>
-                        </div>
-                        <div class="logo">
-                          <img  src="util/pic/logo(black).png">
-                        </div>
-                        <div class="myinfo">
-                          <p id="name">채연</p>
-                          <img id="gender" src="util/pic/girl.jpg">
-                          <p id="birth">1980-10-23</p>
-                        </div>
-                        <img id="member_check" src="util/pic/member_check_btn.jpg">
-                        <div class="friend">
-                          <select>
-                            <option value="">★ 일촌 파도타기</option>
-                            <option value="chorong.html">초롱이</option>
-                            <option value="bobbi.html">뽀삐</option>
-                          </select>
-                        </div>
-                      </div>
                     </div>
                   </div><!--visit_tab-->
                   <!--관리 탭-->
                   <div id="setup_tab" class="tab-content">
-                    <h2>관리</h2>
-                    <div class="left_box">
-                      <!--왼쪽 페이지-->
-                      <div class="left_page">
+                    <div class="setup_container">
+                      <ul class="setup_tabs">
+                          <li class="setup-link active" data-tab="home_info"><p>미니홈피 관리</p></li>
+                          <li class="setup-link" data-tab="basic_info"><p>기본정보</p></li>
+                          <li class="setup-link" data-tab="friend_info"><p>일촌관리</p></li>
+                          <li class="setup-link" data-tab="item_info"><p>아이템 설정 관리</p></li>
+                          <li class="setup-link" data-tab="manager_info"><p>관리자 정보</p></li>
+                      </ul>
+                      <div id="home_info" class="setup-content active">
+                          <h2>미니홈피 관리</h2>
+                          <div>
+                           미니홈피 관리 페이지입니다. 
+                          </div>
+                      </div>
+                      <div id="basic_info" class="setup-content">
+                        <h2>기본정보</h2>
                         <div>
-                          <ul>미니홈피 관리
-                            
-                            <li>기본정보</li>
-                            <li>메뉴</li>
-                            <li>일촌 관리</li>
-                          </ul>
-                          <ul>
-                            <li>아이템 설정 관리</li>
-                            <li>관리자 정보</li>
-                          </ul>
+                          기본정보 관리 페이지입니다. 
+                         </div>
+                      </div>
+                      <div id="friend_info" class="setup-content">
+                        <h2>일촌관리</h2>
+                        <div>
+                          일촌관리 페이지입니다. 
+                         </div>
+                      </div>
+                      <div id="item_info" class="setup-content">
+                        <h2>아이템 설정 관리</h2>
+                        <div>
+                          아이템 설정 페이지입니다. 
+                         </div>
+                      </div>
+                      <div id="manager_info" class="setup-content">
+                        <h2>관리자 정보 수정</h2>
+                        <div style="text-align: center; margin-top:30px;">
+                          <b>비밀번호를 입력하세요</b>
                         </div>
-                      </div><!--left_page-->
+                        <div style="text-align: center; margin-top: 10px;">
+                          <input type="password">
+                          <button onclick="password();">확인</button>
+                        </div>
+                      </div>
+                  </div>
+                    <div class="setup_left">
+                      <!--왼쪽 페이지-->
+                      <div class="setup_list">
+                        
+                      </div>
                     </div>
                   </div><!--setup_tab-->
                 </div><!--container-->
@@ -273,13 +260,13 @@
           <div class="audio">
             <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
             <p>🎺🎹🎻Music Player 🎷🎸</p>
-            <MARQUEE scrolldelay="50">프리스타일-Y</MARQUEE>
+            <MARQUEE scrolldelay="50">버즈-가시</MARQUEE>
             <audio loop controls autoplay>
-              <source src="./util/music/프리스타일-Y.mp3" type="audio/mp3">
+              <source src="util/music/버즈-가시.mp3" type="audio/mp3">
             </audio>
           </div>
           <div class="shop">
-            <input type="submit" value="상점">
+            <input type="submit" value="상점" onclick="location.href='./shop/memberList.html'">
           </div>
           <div class="surfing">
             <input type="submit" value="서핑보드">
@@ -287,7 +274,7 @@
         </div>
         <!-- 로그아웃 버튼 -->
         <div class="logout" id="logoutButton">
-          <input type="submit" value="로그아웃" >
+          <button type="submit" onclick="location.href='login.html'">로그아웃</button>
         </div>
       </div>
     </div>
