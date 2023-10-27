@@ -6,48 +6,23 @@
     <!-- 폰트 변경시 css 파일 교체-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/myhome.css" />
-    <link rel="stylesheet" href="./util/font/maplestory.css" />
-    <link rel="stylesheet" href="./util/bg/bg9.css"/>
+    <link rel="stylesheet" href="./util/font/malgungothic.css"/>
+    <link rel="stylesheet" href="./util/bg/bg.css"/>
+    <link rel="stylesheet" href="./util/thema/white.css"/>
   </head>
   <body>
     <div class="boxes">
       <div class="boxed">
-        <div class="visitor">
-          <tr id="TODAY">TODAY : 
-            <td>0</td>
-          </tr>
-          <tr id="TOTAL">TOTAL : 
-            <td>0</td>
-          </tr>
-        </div>
+        
         <div class="profile">
           <div class="bookdot">
             <div class="left_box">
               <!--좌측 페이지-->
               <div class="left_page">
-                <div class="profile_picture">
-                  <img class="thumnail" src="util/pic/chorong.jpg">
-                </div>
-                <div class="introduce">
-                  <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                  placeholder="자기소개가 없습니다." readonly>안녕하세요 초롱이 입니다.</textarea>
-                </div>
-                <div class="logo">
-                  <img  src="util/pic/logoblack.png">
-                </div>
-                <div class="myinfo">
-                  <p id="name">초롱이</p>
-                  <img id="gender" src="util/pic/man.jpg">
-                  <p id="birth">1999-11-08</p>
-                </div>
-                <img id="member_check" src="util/pic/member_check_btn.jpg"
-                onclick="showPopup();">
-                <div class="friend">
-                  <select onchange="if(this.value) location.href=(this.value);">
-                    <option value="">★ 일촌 파도타기</option>
-                    <option value="myhome.html">채연</option>
-                    <option value="bobbi.html">뽀삐</option>
-                  </select>
+                
+             
+                
+                
                 </div>
               </div>
             </div>
@@ -57,12 +32,7 @@
         <div class="main">
           <div class="bookdot2">
             <div class="main_box">
-              <h2>초롱이 님의 미니홈피</h2>
-              <h5>
-                <a href="chrong.html">
-                  http://sayworld/com/Chorong
-                 </a>
-               </h5>
+              <div style="height: 45px;"></div>
                <div class="main_page">
                 <!--탭 메뉴-->
                 <div class="container">
@@ -76,45 +46,7 @@
                   <!--홈 탭-->
                   <div id="home_tab" class="tab-content">
                     <!--우측보드-->
-                   <div class="home_board">
-                    <div class="board_top">
-                      <div class="main_board">
-                        <p>Updated news</p>
-                        <tr>
-                          <td>등록된 게시물이 없습니다 </br>
-                            소식이 뜸한 친구에게 마음의 한마디를</br>
-                            남겨주세요.
-                          </td>
-                        </tr>
-                      </div>
-                      <div class="board_new">
-                        <table>
-                          <tr>
-                            <td>다이어리  0/0</td>
-                            <td>사진첩 0/0</td>
-                          </tr>
-                          <tr>
-                            <td>방명록  0/0</td>
-                            <td>게시판  0/0</td>
-                          </tr>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="house_title">
-                      <h3>Miniroom</h3>
-                      <div class="house_box">
-                        <div class="minihouse">
-                          <img src="./util/room/pink2_room.gif">
-                        </div>
-                        <div class="minimi">
-                          <img src="./util/minimi/test16.gif">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="friend_comment">
-
-                    </div>
-                  </div>
+                   
                   </div><!--home_tab-->
                   <!--프로필 탭-->
                   <div id="profile_tab" class="tab-content">
@@ -171,7 +103,10 @@
                       <div id="home_info" class="setup-content active">
                           <h2>미니홈피 관리</h2>
                           <div>
-                           미니홈피 관리 페이지입니다. 
+                           <p>화면 테마 변경</p>
+                           <div>
+                            
+                           </div> 
                           </div>
                       </div>
                       <div id="basic_info" class="setup-content">

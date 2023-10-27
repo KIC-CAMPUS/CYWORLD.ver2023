@@ -1,0 +1,15 @@
+.main {
+    background-color: #268EA9;
+    border :1px solid #738186;
+    border-left : 0px;
+  }
+  .profile{
+    background-color: #268EA9;
+    border :1px solid #738186;
+    border-right : 0px;
+  }
+
+  ul.tabs li{
+    background-color: #268EA9;
+    border: solid 2px #2e5662;
+  }

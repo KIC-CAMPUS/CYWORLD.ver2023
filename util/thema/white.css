@@ -1,0 +1,47 @@
+.main {
+  background-color: #ffffff;
+  border-left : 0px;
+}
+.profile{
+  background-color: #ffffff;
+  border-right : 0px;
+}
+
+ul.tabs li{
+  background-color: #ffffff;
+  border: solid 2px #cecece;
+  border-left: solid 2px #cecece; ;
+  color: #000000;
+  
+}
+ul.tabs li.current{
+  color: #000000;
+  background: white;
+  border: solid 2px #cecece;
+  border-left: none;
+}
+
+.main_page, .left_page{
+  border: solid 2px #cecece;
+}
+
+.left_box{
+  border: 2px solid #cecece;
+  border-right: none;
+}
+
+.main_box{
+  border : 2px solid #cecece;
+  border-left: none;
+}
+.setup_left{
+  border-left: 2px solid #cecece;
+}
+
+.setup_list{
+  border: 2px solid #cecece;
+}
+
+.bookdot, .bookdot2{
+ border : 2px dashed #cecece;
+}

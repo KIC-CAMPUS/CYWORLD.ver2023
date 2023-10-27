@@ -1,3 +1,9 @@
+//로그아웃 메세지 출력
+function logout(){
+  alert("로그아웃 되었습니다.")
+  location.href="login.html";
+}
+
 // 홈페이지 탭 메뉴
 $(document).ready(function(){
   $('ul.tabs li').click(function(){
@@ -75,6 +81,102 @@ document.addEventListener('DOMContentLoaded', function() {
      };
 
 //게시판 글작성
-  function Write(){
+function Write(){
+  var iframe = document.querySelector('.board_page iframe');
+  iframe.style.display = 'block';
+}
 
+//게시판 글 작성 취소
+function CloseWrite(){
+  var iframe = document.querySelector('.board_page iframe');
+  iframe.style.display = 'none';
+}
+
+
+//페이지 새로고침
+function Refresh(){
+  location.reload();
+}
+
+// 수정 알람창 출력
+function Alert(){
+  alert("수정되었습니다.")
+  location.reload();
+}
+
+// 테마 변경 알림창 출력
+function changeThema(){
+ alert("변경되었습니다.")
+ location.reload();
+}
+
+// 프로필 이미지 미리보기
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('preview').src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    document.getElementById('preview').src = "";
   }
+}
+
+
+// 게시판 공개
+
+function Profileview() {
+  var f = document.forms["form_profile"];
+  var selectedValue = getSelectedRadioValue(f);
+
+  if (selectedValue === "1") {
+    document.getElementById("profile").style.display = "none";
+  } else if (selectedValue === "2") {
+    document.getElementById("profile").style.display = "";
+  }
+}
+
+function Boardview() {
+  var f = document.forms["form_board"];
+  var selectedValue = getSelectedRadioValue(f);
+
+  if (selectedValue === "1") {
+    document.getElementById("board").style.display = "none";
+  } else if (selectedValue === "2") {
+    document.getElementById("board").style.display = "";
+  }
+}
+
+function Visitview() {
+  var f = document.forms["form_visit"];
+  var selectedValue = getSelectedRadioValue(f);
+
+  if (selectedValue === "1") {
+    document.getElementById("visit").style.display = "none";
+  } else if (selectedValue === "2") {
+    document.getElementById("visit").style.display = "";
+  }
+}
+
+function Setupview() {
+  var f = document.forms["form_setup"];
+  var selectedValue = getSelectedRadioValue(f);
+
+  if (selectedValue === "1") {
+    document.getElementById("setup").style.display = "none";
+  } else if (selectedValue === "2") {
+    document.getElementById("setup").style.display = "";
+  }
+}
+
+function getSelectedRadioValue(form) {
+  if (form && form.type) {
+    for (var i = 0; i < form.type.length; i++) {
+      if (form.type[i].checked) {
+        return form.type[i].value;
+      }
+    }
+  }
+  return null;
+}
