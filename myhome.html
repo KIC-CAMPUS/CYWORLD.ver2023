@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <title>MyPage</title>
-    <!-- 폰트 변경시 css 파일 교체-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="./css/myhome.css" />
-    <link rel="stylesheet" href="./util/font/coffee.css"/>
-    <link rel="stylesheet" href="./util/bg/bg5.css"/>
-    <link rel="stylesheet" href="./util/thema/black.css"/>
+    <link rel="stylesheet" href="./util/font/coffee.css" id="font"/>
+    <link rel="stylesheet" href="./util/bg/bg.css" id="bg"/>
+    <link rel="stylesheet" href="./util/thema/basic.css" id="thema"/>
   </head>
   <body>
     <div class="boxes">
@@ -27,11 +26,11 @@
               <!--좌측 페이지-->
               <div class="left_page">
                 <div class="profile_picture">
-                  <img class="thumnail" src="util/pic/profile2.png">
+                  <img class="thumnail" src="util/pic/basic_girl.jpg">
                 </div>
                 <div class="introduce">
                   <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
-                  placeholder="자기소개가 없습니다." readonly>난... ㄱ ㅏ끔... 눈물을 흘린 ㄷ ㅏ ....</textarea>
+                  placeholder="자기소개가 없습니다." readonly></textarea>
                 </div>
                 <div class="logo">
                   <img  src="util/pic/logoblack.png">
@@ -80,7 +79,7 @@
                    <div class="home_board">
                     <div class="board_top">
                       <div class="main_board">
-                        <p>Updated news</p>
+                        <p>최근 게시물</p>
                         <tr>
                           <td>등록된 게시물이 없습니다 </br>
                             소식이 뜸한 친구에게 마음의 한마디를</br>
@@ -90,10 +89,6 @@
                       </div>
                       <div class="board_new">
                         <table>
-                          <tr>
-                            <td>다이어리  0/0</td>
-                            <td>사진첩 0/0</td>
-                          </tr>
                           <tr>
                             <td>방명록  0/0</td>
                             <td>게시판  0/0</td>
@@ -105,10 +100,10 @@
                       <h3>Miniroom</h3>
                       <div class="house_box">
                         <div class="minihouse">
-                          <img src="./util/room/pink2_room.gif">
+                          <img src="./util/room/basic_room.png">
                         </div>
                         <div class="minimi">
-                          <img src="./util/minimi/test16.gif">
+                          <img src="./util/minimi/basic_girl.png">
                         </div>
                       </div>
                     </div>
@@ -206,6 +201,7 @@
                               </li>
                             </ul>
                           </div>
+                          <input type="submit" value="저장" onclick="Save();">
                         </div>
                       </div>
                       <div id="basic_info" class="setup-content">
@@ -231,7 +227,7 @@
                             <div >
                               <textarea></textarea>
                             </div>
-                            <input type="submit" value="수정" onclick="changeThema();" style="height: 30px;">
+                            <input type="submit" value="수정" onclick="" style="height: 30px;">
                           </div>
                          </div>
                       </div>
@@ -260,43 +256,76 @@
                             <p>화면 테마 변경</p>
                             <div class="thema-list">
                               <div>
-                               <table>
-                                <div class="thema-menu">
-                                  <img src="./util/thema/basic.png">
-                                  <input type="submit" value="변경하기" onclick="changeThema();">
-                                </div>
-                                <div class="thema-menu">
-                                  <img src="./util/thema/black.png">
-                                  <input type="submit" value="변경하기" onclick="changeThema();">
-                                </div>
-                                <div class="thema-menu">
-                                  <img src="./util/thema/white.png">
-                                  <input type="submit" value="변경하기" onclick="changeThema();">
-                                </div>
-                               </table>
+                                <table>
+                                  <tr>
+                                    <td class="thema-menu">
+                                      <img src="./util/thema/basic.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('기본');">
+                                    </td>
+                                    <td class="thema-menu">
+                                      <img src="./util/thema/black.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('블랙');">
+                                    </td>
+                                    <td class="thema-menu">
+                                      <img src="./util/thema/white.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('화이트');">
+                                    </td>
+                                  </tr>
+                                </table>
                               </div> 
                             </div>
                           <hr>
                           <p>배경화면 설정</p>
-                          <div>
-                              <div class="">
-                                <img src="./util/bg/bg5.jpg">
-                                <p>현재 적용중인 배경</p>
+                          <div class="bg-setup">
+                              <div class="bg-list">
+                                <p><보유중인 배경></p>
+                                <table>
+                                  <tr>
+                                    <td><img src="./util/bg/bg.png"></br><button onclick="changeBackground('기본')">변경</button></td>
+                                    <td><img src="./util/bg/bg5.jpg"></br><button onclick="changeBackground('배경5')">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="./util/bg/bg9.png"></br><button onclick="changeBackground('배경9')">변경</button></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </table>
                               </div>
                           </div> 
                           <hr>
                           <p>폰트 설정</p>
                           <div class="profile_text" >
-                            <div >
-                              <textarea></textarea>
+                            <div class="font-list">
+                              <p><보유중인 폰트></p>
+                              <table>
+                                <tr>
+                                  <td><img src="./util/font/coffee1.gif"></br><button onclick="changeFont('커피')">변경</button></td>
+                                  <td><img src="./util/font/dovemayo.gif"></br><button onclick="changeFont('둘기마요')">변경</button></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                                <tr>
+                                  <td></td>
+                                  <td></td>
+                                </tr>
+                              </table>
                             </div>
-                            <input type="submit" value="수정" onclick="changeThema();" style="height: 30px;">
                           </div>
                           <hr>
                           <p>미니룸 설정</p>
                           <div class="profile_text" >
-                            <div >
-                              <textarea></textarea>
+                            <div class="showroom">
+                                <div class="now-miniroom">
+                                    <img src="./util/room/basic_room.png">
+                                </div>
+                                <div class="now-minimi">
+                                <img src="./util/minimi/basic_girl.png">
+                                </div>
                             </div>
                             <input type="submit" value="수정" style="height: 30px;">
                           </div>

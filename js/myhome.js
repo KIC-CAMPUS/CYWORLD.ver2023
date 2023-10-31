@@ -1,3 +1,18 @@
+// 생년월일 리스트
+$(document).ready(
+  function () {
+      for (var i = 2023; i > 1920; i--) {
+          $('#year').append('<option value="' + i + '">' + i + '</option>');
+      }
+      for (var i = 1; i < 13; i++) {
+          $('#month').append('<option value="' + i + '">' + i + '</option>');
+      }
+      for (var i = 1; i < 32; i++) {
+          $('#day').append('<option value="' + i + '">' + i + '</option>');
+      }
+  }
+);
+
 //로그아웃 메세지 출력
 function logout(){
   alert("로그아웃 되었습니다.")
@@ -104,11 +119,14 @@ function Alert(){
   location.reload();
 }
 
-// 테마 변경 알림창 출력
-function changeThema(){
- alert("변경되었습니다.")
- location.reload();
+// 저장 알람창 출력
+function Save(){
+  alert("저장되었습니다.")
+  location.reload();
 }
+
+
+
 
 // 프로필 이미지 미리보기
 function readURL(input) {
@@ -180,3 +198,39 @@ function getSelectedRadioValue(form) {
   }
   return null;
 }
+
+
+// 테마 CSS변경
+function changeThema(data){
+  if(data === "기본"){
+    $("#thema").attr("href", "./util/thema/basic.css");
+  } else if (data === "블랙"){
+    $("#thema").attr("href", "./util/thema/black.css");
+  } else if (data === "화이트"){
+    $("#thema").attr("href", "./util/thema/white.css");
+  }
+  alert("변경되었습니다.")
+}
+
+// 배경 CSS변경 
+function changeBackground(data) {
+  if (data === "기본") {
+    $("#bg").attr("href", "./util/bg/bg.css");
+  } else if (data === "배경5") {
+    $("#bg").attr("href", "./util/bg/bg5.css");
+  }else if (data === "배경9") {
+    $("#bg").attr("href", "./util/bg/bg9.css");
+ }
+ alert("변경되었습니다.")
+}
+
+// 폰트 CSS변경
+
+function changeFont(data){
+  if(data === "커피"){
+    $("#font").attr("href","./util/font/coffee.css");
+    } else if (data === "둘기마요"){
+      $("#font").attr("href","./util/font/dovemayo.css");
+    }
+    alert("변경되었습니다.")
+  }
