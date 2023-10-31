@@ -100,10 +100,10 @@
                       <h3>Miniroom</h3>
                       <div class="house_box">
                         <div class="minihouse">
-                          <img src="./util/room/basic_room.png">
+                          <img src="./util/room/basic_room.png" id="miniroom">
                         </div>
                         <div class="minimi">
-                          <img src="./util/minimi/basic_girl.png">
+                          <img src="./util/minimi/basic_girl.png" id="minimi">
                         </div>
                       </div>
                     </div>
@@ -151,7 +151,47 @@
                   <!--방명록 탭-->
                   <div id="visit_tab" class="tab-content">
                     <div class="visit_page">
-                    <iframe src="VisitBoard.html"></iframe>
+                        <p id="visit_title">오늘도 사이좋은 사람들과 행복한 하루를...</p>
+                                        <div>
+                                          <div class="visit_board">
+                                            <div class="visit_board_write">
+                                              <div class="visit_minimi">
+                                                <img src="./util/minimi/test16.gif">
+                                              </div>
+                                              <div class="visit_write">
+                                                <textarea></textarea>
+                                              </div>
+                                              <div class="visit_board_btn">
+                                                <input type="checkbox" value="비밀로하기"><p>비밀로하기</p></input>
+                                                <input type="submit" id="ment" value="확인">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="visit_reply">
+                                            <div class="visit_board_info">
+                                                <p style="margin-left: 15px;">No.1</p>
+                                                <a style="margin-left:10px;" href="chorong.html">초롱이</a>
+                                                <img id="house_icon" src="util/pic/house.jpg">
+                                                <p style="margin:0 10px;">(2023-10-23) </p>
+                                                <a style="margin-left: 370px;">비밀로하기</a>
+                                                <a style="margin-left: 10px;">삭제</a>
+                                            </div>
+                                            <div class="visit_board_list">
+                                                <div class="visit_board_view">
+                                                    <div class="visit_minimi">
+                                                    <img src="./util/minimi/test15.gif">
+                                                    </div>
+                                                    <div class="visitor_comment">
+                                                    <textarea readonly>잘 지내니</textarea>
+                                                    </div>
+                                                    <div class="user_comment">
+                                                    <textarea></textarea>
+                                                    </div>
+                                                    <input type="submit" id="user_comment_btn" value="확인">
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
                    </div>
                   </div><!--visit_tab-->
                   <!--관리 탭-->
@@ -278,15 +318,15 @@
                           <p>배경화면 설정</p>
                           <div class="bg-setup">
                               <div class="bg-list">
-                                <p><보유중인 배경></p>
+                                <p><보유중인> 배경></p>
                                 <table>
                                   <tr>
-                                    <td><img src="./util/bg/bg.png"></br><button onclick="changeBackground('기본')">변경</button></td>
-                                    <td><img src="./util/bg/bg5.jpg"></br><button onclick="changeBackground('배경5')">변경</button></td>
+                                    <td><img src="./util/bg/bg.png"></br><button onclick="changeBackground('bg')">변경</button></td>
+                                    <td><img src="./util/bg/bg5.jpg"></br><button onclick="changeBackground('bg5')">변경</button></td>
                                   </tr>
                                   <tr>
-                                    <td><img src="./util/bg/bg9.png"></br><button onclick="changeBackground('배경9')">변경</button></td>
-                                    <td></td>
+                                    <td><img src="./util/bg/bg9.png"></br><button onclick="changeBackground('bg9')">변경</button></td>
+                                    <td><img src="./util/bg/bg3.jpg"></br><button onclick="changeBackground('bg3')">변경</button></td>
                                   </tr>
                                   <tr>
                                     <td></td>
@@ -297,45 +337,124 @@
                           </div> 
                           <hr>
                           <p>폰트 설정</p>
-                          <div class="profile_text" >
+                          <div>
                             <div class="font-list">
                               <p><보유중인 폰트></p>
                               <table>
                                 <tr>
-                                  <td><img src="./util/font/coffee1.gif"></br><button onclick="changeFont('커피')">변경</button></td>
-                                  <td><img src="./util/font/dovemayo.gif"></br><button onclick="changeFont('둘기마요')">변경</button></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
-                                </tr>
-                                <tr>
-                                  <td></td>
-                                  <td></td>
+                                  <td><img src="./util/font/coffee1.gif"></br><button onclick="changeFont('coffee')">변경</button></td>
+                                  <td><img src="./util/font/dovemayo.gif"></br><button onclick="changeFont('dovemayo')">변경</button></td>
+                                  <td><img src="./util/font/hoonjunglebook.gif"></br><button onclick="changeFont('hoonjunglebook')">변경</button></td>
+                                  <td><img src="./util/font/malgungothic.gif"></br><button onclick="changeFont('malgungothic')">변경</button></td>
                                 </tr>
                               </table>
                             </div>
                           </div>
                           <hr>
                           <p>미니룸 설정</p>
-                          <div class="profile_text" >
+                          <div>
                             <div class="showroom">
+                              <p>현재 적용중</p>
                                 <div class="now-miniroom">
-                                    <img src="./util/room/basic_room.png">
+                                  <img src="./util/room/basic_room.png" id="use-miniroom">
                                 </div>
                                 <div class="now-minimi">
-                                <img src="./util/minimi/basic_girl.png">
+                                  <img src="./util/minimi/basic_girl.png" id="use-minimi">
                                 </div>
                             </div>
-                            <input type="submit" value="수정" style="height: 30px;">
+                            <div class="mini_list">
+                              <div id="room_list">
+                                <p><보유중인 미니룸></p>
+                                <table>
+                                  <tr>
+                                    <td><img src="./util/room/basic_room.png""><button onclick="changeRoom('basic_room')">변경</button></td>
+                                    <td><img src="./util/room/con_room.gif"><button onclick="changeRoom('con_room')">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="./util/room/forest_room.gif"><button onclick="changeRoom('forest_room')">변경</button></td>
+                                    <td><img src="./util/room/road_room.jpg"><button onclick="changeRoom('musium_room')">변경</button></td>
+                                  </tr>
+                                </table>
+                              </div>
+                              <div id="minimi_list">
+                                <p><보유중인 미니미></p>
+                                <table>
+                                  <tr>
+                                    <td><img src="./util/minimi/basic_girl.png"><button onclick="changeMini('basic_girl')">변경</button></td>
+                                    <td><img src="./util/minimi/test17.gif"><button onclick="changeMini('test17')">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="./util/minimi/test11.gif"><button onclick="changeMini('test11')">변경</button></td>
+                                    <td><img src="./util/minimi/test12.gif"><button onclick="changeMini('test12')">변경</button></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                            <input type="submit" value="수정" onclick="Alert();" style="height: 30px;">
                           </div>
                           <hr>
                           <p>뮤직 플레이어 설정</p>
-                          <div class="profile_text" >
-                            <div >
-                              <textarea></textarea>
+                          <div class="music_list" >
+                            <p style="font-size: 20px; text-align: left;">추억의 BGM</p>
+                            <hr>
+                            <div class="music_thumb">
+                              <table>
+                                <tr>
+                                  <td >
+                                    <img src="./util/music/FT아일랜드 - 사랑앓이.jpg">
+                                    <a href="music.html" id="m-title">사랑앓이</a>
+                                    <p>FT아일랜드</p>
+                                  </td>
+                                  <td>
+                                    <img src="./util/music/프리스타일-Y.jpg">
+                                    <a href="music.html" id="m-title">Y(Please Tell Me Why)</a>
+                                    <p>프리스타일</p>
+                                  </td>
+                                  <td>
+                                    <img src="./util/music/전람회 - 취중진담.jpg">
+                                    <a href="music.html" id="m-title">취중진담</a>
+                                    <p>전람회</p>
+                                  </td>
+                                </tr>
+                              </table>
                             </div>
-                            <input type="submit" value="수정" onclick="changeThema();" style="height: 30px;">
+                            <a href="music.html" style="text-decoration-line: none;">상점으로 이동하기-></a>
+                            <hr>
+                            <div class="my_music">
+                              <p>보유중인 음악</p>
+                              <table style="background-color: #cecece;">
+                                <tr>
+                                  <td style="width: 20%;">번호</td>
+                                  <td style="width: 40%;">곡명</td>
+                                  <td style="width: 30%;">아티스트</td>
+                                  <td style="width: 10%;"></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">1</td>
+                                  <td style="width: 40%;">사랑앓이</td>
+                                  <td style="width: 30%;">FT아일랜드</td>
+                                  <td style="width: 10%;"><button onclick="changeMusic('FT아일랜드 - 사랑앓이');">듣기</button></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">2</td>
+                                  <td style="width: 40%;">Y(Please Tell Me Why)</td>
+                                  <td style="width: 30%;">프리스타일</td>
+                                  <td style="width: 10%;"><input type="button" value="듣기" onclick="changeMusic();"></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">3</td>
+                                  <td style="width: 40%;">취중진담</td>
+                                  <td style="width: 30%;">전람회</td>
+                                  <td style="width: 10%;"><input type="button" value="듣기" onclick="changeMusic();"></td>
+                                </tr>
+                              </table>
+                            </div>
                           </div>
                       </div>
                       </div>
@@ -412,9 +531,9 @@
           <div class="audio">
             <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
             <p>🎺🎹🎻Music Player 🎷🎸</p>
-            <MARQUEE scrolldelay="50"></MARQUEE>
+            <MARQUEE scrolldelay="50" id="music-title"></MARQUEE>
             <audio loop controls autoplay>
-              <source src="" type="audio/mp3">
+              <source src="" type="audio/mp3" id="music">
             </audio>
           </div>
           <div class="shop">

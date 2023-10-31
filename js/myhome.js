@@ -9,7 +9,7 @@ $(document).ready(
       }
       for (var i = 1; i < 32; i++) {
           $('#day').append('<option value="' + i + '">' + i + '</option>');
-      }
+      } 
   }
 );
 
@@ -209,28 +209,163 @@ function changeThema(data){
   } else if (data === "화이트"){
     $("#thema").attr("href", "./util/thema/white.css");
   }
-  alert("변경되었습니다.")
 }
 
 // 배경 CSS변경 
 function changeBackground(data) {
-  if (data === "기본") {
+  if (data === "bg") {
     $("#bg").attr("href", "./util/bg/bg.css");
-  } else if (data === "배경5") {
+  } else if (data === "bg3") {
+    $("#bg").attr("href", "./util/bg/bg3.css");
+  } else if (data === "bg4") {
+    $("#bg").attr("href", "./util/bg/bg4.css");
+  } else if (data === "bg5") {
     $("#bg").attr("href", "./util/bg/bg5.css");
-  }else if (data === "배경9") {
+  } else if (data === "bg6") {
+    $("#bg").attr("href", "./util/bg/bg6.css");
+  } else if (data === "bg7") {
+    $("#bg").attr("href", "./util/bg/bg7.css");
+  } else if (data === "bg8") {
+    $("#bg").attr("href", "./util/bg/bg8.css");
+  } else if (data === "bg9") {
     $("#bg").attr("href", "./util/bg/bg9.css");
+  } else if (data === "bg10") {
+    $("#bg").attr("href", "./util/bg/bg10.css");
  }
- alert("변경되었습니다.")
 }
 
 // 폰트 CSS변경
 
 function changeFont(data){
-  if(data === "커피"){
+  if(data === "coffee"){
     $("#font").attr("href","./util/font/coffee.css");
-    } else if (data === "둘기마요"){
-      $("#font").attr("href","./util/font/dovemayo.css");
-    }
-    alert("변경되었습니다.")
+  } else if (data === "dovemayo"){
+    $("#font").attr("href","./util/font/dovemayo.css");
+  } else if (data === "hoonjunglebook"){
+    $("#font").attr("href","./util/font/hoonjunglebook.css");
+  } else if (data === "malgungothic"){
+    $("#font").attr("href","./util/font/malgungothic.css");
+  } else if (data === "maplestory"){
+    $("#font").attr("href","./util/font/maplestory.css");
+  } else if (data === "typocrayon"){
+    $("#font").attr("href","./util/font/typocrayon.css");
+  } else if (data === "unigothic"){
+    $("#font").attr("href","./util/font/unigothic.css");
+   }
   }
+
+
+  //미니룸 변경
+function changeRoom(data){
+ if(data === "basic_room"){
+  $("#miniroom, #use-miniroom").attr("src","./util/room/basic_room.png");
+  }else if(data === "con_room"){
+  $("#miniroom, #use-miniroom").attr("src","./util/room/con_room.gif");
+  }else if(data === "forest_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/forest_room.gif");
+  }else if(data === "musium_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/musium_room.gif");
+  }else if(data === "my_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/my_room.gif");
+  }else if(data === "park_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/park_room.jpg");
+  }else if(data === "park2_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/park2_room.gif");
+  }else if(data === "pink_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/pink_room.png");
+  }else if(data === "pink2_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/pink2_room.gif");
+  }else if(data === "pocha_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/pocha_room.gif");
+  }else if(data === "road_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/road_room.jpg");
+  }else if(data === "store_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/store_room.gif");
+  }else if(data === "study_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/study_room.gif");
+  }else if(data === "winter_room"){
+    $("#miniroom, #use-miniroom").attr("src","./util/room/winter_room.gif");
+    }
+}
+
+
+  // 미니미 변경
+  function changeMini(data){
+    if(data === "basic_girl"){
+     $("#minmi, #use-minimi").attr("src","./util/minimi/basic_girl.png");
+    }else if(data === "basic_man"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/basic_man.png");
+    }else if(data === "test1"){
+     $("#minimi, #use-minimi").attr("src","./util/minimi/test1.gif");
+    }else if(data === "test2"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test2.gif");
+    }else if(data === "test3"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test3.gif");
+    }else if(data === "test4"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test4.gif");
+    }else if(data === "test5"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test5.gif");
+    }else if(data === "test6"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test6.gif");
+    }else if(data === "test7"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test7.gif");
+    }else if(data === "test8"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test8.gif");
+    }else if(data === "test9"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test9.gif");
+    }else if(data === "test10"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test10.gif");
+    }else if(data === "test11"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test11.gif");
+    }else if(data === "test12"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test12.gif");
+    }else if(data === "test13"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test13.gif");
+    }else if(data === "test14"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test14.gif");
+    }else if(data === "test15"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test15.gif");
+    }else if(data === "test16"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test16.gif");
+    }else if(data === "test17"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test17.gif");
+    }else if(data === "test18"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test18.gif");
+    }else if(data === "test19"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test19.gif");
+    }else if(data === "test20"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test20.gif");
+    }else if(data === "test21"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test21.gif");
+    }else if(data === "test22"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test22.gif");
+    }else if(data === "test23"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test23.gif");
+    }else if(data === "test24"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test24.gif");
+    }else if(data === "test25"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test25.gif");
+    }else if(data === "test26"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test26.gif");
+    }else if(data === "test27"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test27.gif");
+    }else if(data === "test28"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test28.gif");
+    }else if(data === "test29"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test29.gif");
+    }else if(data === "test30"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test30.gif");
+    }else if(data === "test31"){
+      $("#minimi, #use-minimi").attr("src","./util/minimi/test31.gif");
+     alert("변경되었습니다.")
+   }
+  }
+
+  // 음악 변경
+function changeMusic(data){
+  if(data === "FT아일랜드 - 사랑앓이"){
+    $("#music").attr("src","./util/music/FT아일랜드 - 사랑앓이.mp3");
+   }else if(data === "M TO M - 세 글자"){
+     $("#music").attr("src","./util/music/M TO M - 세 글자.mp3");
+  }
+}
