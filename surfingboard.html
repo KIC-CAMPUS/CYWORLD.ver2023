@@ -1,13 +1,13 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head><script src="/docs/5.3/assets/js/color-modes.js"></script>
+<head><script src="/docs/5.3/assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>세이월드 서핑보드</title>
+    <title>Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.kr/docs/5.3/examples/album-rtl/">
 
@@ -232,6 +232,19 @@
   font-weight: bold;
 }
 
+.btn-close {
+    position: absolute;
+    top: 100;
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.member-name {
+	margin-left: 10px;
+}
+
+
 	</style>
 
     
@@ -256,8 +269,8 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top" aria-label="Tenth navbar example">
 		<div class="container-fluid">
 		  <!-- 로고를 상단에 배치 -->
-      <a class="navbar-brand" href="#"style="display: flex; align-items: center;">
-        <img src="./util/pic/surfing.png" alt="SAY WORLD 서핑보드" style="width: 450px; height: auto;">
+      <a class="navbar-brand" th:href="${}"style="display: flex; align-items: center;">
+        <img th:src="@{util/pic/logo3.png}" alt="SAY WORLD 상점" style="width: 450px; height: auto;">
     </a>
 		  
 		  <!-- 토글 버튼 -->
@@ -275,14 +288,14 @@
 		  </div>
           <div class="dropdown text-end">
             <a href="#" class="d-block link-body-emphasis text-decoration-underline dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="./util/minimi/test11.gif" alt="mdo" th:width="140" th:height="140" class="rounded">
+              <img src="util/avatar/avatar9.png" alt="mdo" th:width="140" th:height="140" class="rounded">
             </a>
             <ul class="dropdown-menu text-small">
-              <li><a class="dropdown-item" href="#">미니홈피</a></li>
-              <li><a class="dropdown-item" href="cart.html">장바구니</a></li>
+              <li><a class="dropdown-item" th:href="${myhome}">미니홈피</a></li>
+              <li><a class="dropdown-item" th:href="${cart}">장바구니</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">도토리</a></li>
-              <li><a><img src="./util/pic/dotori.png" alt="도토리" class="dotori-image">100</a></li>
+              <li><a><img src="util/avatar/New Piskel (9).png" alt="도토리" class="dotori-image">100</a></li>
               <li>
                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">도토리 구매</a>
               </li>
@@ -339,160 +352,51 @@
 </main>
 <!--검색영역-->
 <div class="sidebar">
-  <div class="search">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="친구찾기" aria-label="Search">
-      <button class="btn btn-info rounded-pill px-3" type="submit">Search</button>
-      <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-  </form>
-  <div class="d-flex2 text-body-secondary pt-3">
-    <img src="util/avatar/avatar 3.png" class="member-img">
-    <a href="#"><text class="member-name">김영환</text></a>
-    <div class="pb-3 mb-0 small lh-sm border-bottom w-100"></div>
-  </div>
-  </div>
+    <div class="search">
+        <form class="d-flex" role="search" onsubmit="performSearch(event)">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="친구찾기" aria-label="Search">
+            <button class="btn btn-info rounded-pill px-3" type="submit">Search</button>
+        </form>
+        <div class="d-flex2 text-body-secondary pt-3" id="searchResults" style="display: none;">
+            <img th:src="@{util/pic/${customer.gender}.jpg}" class="member-img">
+            <button class="btn-close" onclick="hideResults()"></button>
+            <a th:href="${home.friendURL}">
+                <text class="member-name" th:text="${customer.name}">김영환</text>
+            </a>
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100"></div>
+        </div>
+    </div>
 </div>
 
 <!--프로필영역-->
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div class="row">
-          <a href="#">
-            <div class="col-md-4">
-                <div class="card">
-                  <a href="#">
-                    <img src="util/avatar/avatar 3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">김영환</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <div th:each="customer : ${customer}">
+                <a th:href="${home.friendURL}">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a th:href="${home.friendURL}">
+                                <img th:src="@{util/pic/${customer.gender}.jpg}">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${customer.name}">김영환</h5>
+                                    <p class="card-text" th:text="${home.introduce}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="#">
-                      <img src="util/avatar/avatar.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class card-title>김자바</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <a href="#">
-                      <img src="util/avatar/avatar8.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">홍길동</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      </div>
-                    </a>
-                </div>
+                </a>
             </div>
         </div>
-        <div class="album2 py-5 bg-body-tertiary">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a href="#">
-                              <img src="./util/pic/profile.jpg" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">김뭐뭐</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a href="#">
-                              <img src="./util/pic/profile2.png" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class card-title>김아무개</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a href="#">
-                              <img src="util/avatar/avatar10.png" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title">이아무개</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="album3 py-5 bg-body-tertiary">
-                    <div class="container">
-                
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="#">
-                                      <img src="util/avatar/avatar 6.png" class="card-img-top" alt="...">
-                                      <div class="card-body">
-                                        <h5 class="card-title">최아무개</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="#">
-                                      <img src="util/avatar/avatar 5.png" class="card-img-top" alt="...">
-                                      <div class="card-body">
-                                        <h5 class card-title>박아무개</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card">
-                                    <a href="#">
-                                      <img src="util/avatar/avatar 4.png" class="card-img-top" alt="...">
-                                      <div class="card-body">
-                                        <h5 class="card-title">곽아무개</h5>
-                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                      </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                          
+    </div>
+</div>                          
                 
 
           
-  <!--페이징-->      
-  <nav aria-label="Page navigation example" class="justify-content-center">
-	<ul class="pagination">
-	  <li class="page-item">
-		<a class="page-link" href="#" aria-label="Previous">
-		  <span aria-hidden="true">&laquo;</span>
-		</a>
-	  </li>
-	  <li class="page-item"><a class="page-link" href="#">1</a></li>
-	  <li class="page-item"><a class="page-link" href="#">2</a></li>
-	  <li class="page-item"><a class="page-link" href="#">3</a></li>
-	  <li class="page-item">
-		<a class="page-link" href="#" aria-label="Next">
-		  <span aria-hidden="true">&raquo;</span>
-		</a>
-	  </li>
-	</ul>
-  </nav>
+  
   <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
 
 </main>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
@@ -519,6 +423,118 @@ function topFunction() {
   document.documentElement.scrollTop = 0; 
 }
 
+// window.addEventListener('scroll', function() {
+//         var search = document.querySelector('.search');
+//         if (window.scrollY > 0) {
+//             search.classList.add('scrolled');
+//         } else {
+//             search.classList.remove('scrolled');
+//         }
+//     });
 
+// 검색을 수행하고 결과를 필터링하여 표시하는 함수
+function performSearch(event) {
+    event.preventDefault(); // 기본 제출 동작 방지
+
+    var searchQuery = document.getElementById('searchInput').value.trim().toLowerCase(); // 검색어 가져오기 및 소문자로 변환
+
+    var customers = document.querySelectorAll('.member-name'); // 모든 고객 목록 요소 가져오기
+
+    let found = false; // 검색 결과를 찾았는지 여부를 추적
+
+    customers.forEach(function(customer) {
+        var name = customer.textContent.toLowerCase(); // 각 고객의 이름 가져오기
+        var parentElement = customer.parentElement; // 고객 이름이 포함된 부모 요소 가져오기
+
+        if (name.includes(searchQuery)) {
+            parentElement.style.display = 'block'; // 검색어가 이름에 포함된 경우 보이기
+            found = true; // 결과를 찾았음을 표시
+        } else {
+            parentElement.style.display = 'none'; // 검색어가 이름에 포함되지 않은 경우 숨기기
+        }
+    });
+
+    var searchResultsElement = document.getElementById('searchResults');
+    if (found) {
+        searchResultsElement.style.display = 'block'; // 결과를 표시할 요소 보이기
+    } else {
+        searchResultsElement.style.display = 'none'; // 결과가 없으면 요소를 숨깁니다.
+    }
+}
+
+// 이 함수는 제공된 배열을 기반으로 검색 결과를 표시합니다.
+function displaySearchResults(results) {
+    let searchResultsElement = document.getElementById('searchResults');
+    searchResultsElement.innerHTML = ''; // 이전 결과 지우기
+
+    if (results.length === 0) {
+        searchResultsElement.style.display = 'none'; // 결과가 없으면 요소를 숨깁니다.
+        return; // 결과가 없으면 함수 종료
+    }
+
+    results.forEach(customer => {
+        let listItem = document.createElement('div');
+        listItem.classList.add('member-info'); // 새 클래스 추가
+        listItem.innerHTML = `
+            <div>
+                <img src="util/pic/${customer.gender}.jpg" class="member-img">
+            </div>
+            <div>
+                <a href="${home.friendURL}">
+                    <text class="member-name">${customer.name}</text>
+                </a>
+            </div>
+        `;
+        searchResultsElement.appendChild(listItem);
+    });
+
+    searchResultsElement.style.display = 'block'; // 검색 결과를 표시할 요소 보이기
+}
+
+// 검색 결과를 숨기는 함수
+function hideResults() {
+    document.getElementById('searchResults').style.display = 'none';
+}
+
+function showSearchResults(filteredResults) {
+    var searchResultsDiv = document.getElementById('searchResults');
+    var resultsHTML = '';
+
+    // 받아온 결과를 HTML 형식으로 만들어줍니다.
+    filteredResults.forEach(function(result) {
+        resultsHTML += `
+            <img src="${result.avatar}" class="member-img">
+            <a href="${result.profileLink}"><text class="member-name">${result.name}</text></a>
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100"></div>
+        `;
+    });
+
+    // 결과를 표시하고 스타일을 변경하여 보이도록 설정합니다.
+    searchResultsDiv.innerHTML = resultsHTML;
+    searchResultsDiv.style.display = 'block';
+}
+
+function hideResults() {
+    var searchResults = document.getElementById('searchResults');
+    searchResults.style.display = 'none';
+}
+
+function showSearchResults(filteredResults) {
+    var searchResultsDiv = document.getElementById('searchResults');
+    var resultsHTML = '';
+
+    // 받아온 결과를 HTML 형식으로 만들어줌.
+    filteredResults.forEach(function(result) {
+        resultsHTML += `
+            <img src="${result.avatar}" class="member-img">
+            <a href="${result.profileLink}"><text class="member-name">${result.name}</text></a>
+            <div class="pb-3 mb-0 small lh-sm border-bottom w-100"></div>
+        `;
+    });
+
+    // 결과를 표시하고 스타일을 변경하여 보이도록 설정합니다.
+    searchResultsDiv.innerHTML = resultsHTML;
+    searchResultsDiv.style.display = 'block';
+}
 </script>
 </html>
