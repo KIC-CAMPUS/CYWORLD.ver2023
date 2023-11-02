@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./util/font/coffee.css" />
+    <link rel="stylesheet" href="./css/myhome.css"/>
+    <style>
+        h2{
+        width: 350px;
+        margin-bottom: 4px;
+        margin-top: 15px;
+        margin-left: 30px;
+        }
+   
+        textarea{
+        width: 700px; 
+        height: 325px; 
+        font-size: 15px;
+        border: none;
+        resize: none;
+        }
+        textarea:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>게시판</h2>
+        <div style="border-bottom: 2px solid #cecece;">
+            <div style="text-align: right;">
+                <img src="./util/pic/listBtn.png" type="button" value="목록" onclick="location.href='BoardList.html'">
+                <img src="./util/pic/deleteBtn.png"type="button" value="삭제" onclick="location.href='BoardList.html'">
+            </div>
+          <table style="margin:0 auto;">
+            <tr>
+                <td>작성자</td>
+                <td>작성날짜</td>
+                <td>조회수</td>
+            </tr>
+          </table>  
+        </div>
+        <div style="text-align: center;">
+            <p style="text-align: right;">첨부파일 : </p>
+            <textarea readonly>게시글 내용</textarea>
+        </div>
+    </div>
+    
+</body>
+</html>

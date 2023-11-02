@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+@font-face {
+     font-family: 'DungGeunMo';
+     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}	
+	
+body {
+    background-image: url('/members/back.png');
+    font-family: 'DungGeunMo', sans-serif;
+}
+
+.circle {
+            width: 600px;
+            height: 600px; 
+            background-color: white; 
+            border-radius: 50%; 
+            position: absolute;
+            top: 50%;
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+.logo_circle {
+    width: 400px;
+    height: 100px;
+}
+
+.loginInfo {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   text-align: center;
+}
+
+.login-form {
+    position: relative;
+    z-index: 2;
+  }
+
+.int-area{
+	margin-top: 40px;
+	margin-bottom: 30px;
+}
+
+.int-area input{
+	width: 400px;
+    height: 50px;
+    background: white;
+    font-size: 20px;
+    border: 2px solid rgb(74, 73, 80);
+    padding : 5px;
+    border-radius: 25px;
+}
+
+.btn-area {
+    margin-top: 40px; 
+    margin-bottom: 30px;
+}
+
+.btn-area button {
+    width: 400px;
+    height: 50px;
+    background: rgb(74, 73, 80);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+}
+
+.caption {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.caption a {
+    font-size: 15px;
+    color: #999;
+    text-decoration: none;
+}
+  
+</style>  
+</head>
+<body>
+
+<section class="main">
+	<div class="circle">
+    
+	   <form id="loginInfo" class="loginInfo" th:action="@{/members/login}" th:object="${loginForm}" method="post">
+	    
+			<img th:src="@{/members/logo.png}" src="logo.png" alt="세이월드 로고" class="logo_circle"/>
+			<br/>
+			
+		    <div class="int-area">
+				 <input type="text" id="memberId" name="memberId" th:field="*{memberId}"
+						class="form-control" placeholder="아이디(이메일)" required/>
+			</div>
+		    <div class="int-area">
+		         <input type="password" id="password" name="password" th:field="*{password}"
+						class="form-control" placeholder="비밀번호" required/>
+		    </div>
+		        
+		    <div class="btn-area">
+				<button id="btn" type="submit">로그인</button>
+		    </div>
+		         
+		    <div class="caption">
+		        <a th:onclick="|location.href='@{/members/findid}'|">아이디 찾기 |</a> 
+		        <a th:onclick="|location.href='@{/members/findpw}'|">비밀번호 찾기 |</a> 
+		        <a th:onclick="|location.href='@{/members/add}'|">회원가입</a>
+		    </div>
+		</form>
+    </div>
+</section>
+
+
+<!-- container -->
+<script>
+		let message = "[[${msg}]]"
+		if( message != "" ){
+			alert(message);
+		}
+</script>
+
+</body>
+</html>

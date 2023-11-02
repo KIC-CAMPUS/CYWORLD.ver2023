@@ -1,0 +1,60 @@
+
+function findId_click() {
+    var username = document.querySelector("input[name='username']").value;
+    var phone1 = document.querySelector("input[name='phone1']").value;
+    var phone2 = document.querySelector("input[name='phone2']").value;
+    var phone3 = document.querySelector("input[name='phone3']").value;
+    var year = document.querySelector("select[name='year']").value;
+    var month = document.querySelector("select[name='month']").value;
+    var day = document.querySelector("select[name='day']").value;
+
+   
+    $.ajax({
+        url: "/find_id",
+        type: "POST",
+        data: {
+            username: username,
+            phone1: phone1,
+            phone2: phone2,
+            phone3: phone3,
+            year: year,
+            month: month,
+            day: day
+        },
+        success: function(data) {
+            if (data) {
+                // 아이디를 찾았을 경우
+                alert("아이디는 " + data + " 입니다.");
+            } else {
+                // 아이디를 찾지 못했을 경우
+                alert("아이디를 찾을 수 없습니다.");
+            }
+        },
+        error: function() {
+            alert("서버 요청 중 오류가 발생했습니다.");
+        }
+    });
+
+};
+
+const modal = document.getElementById("modal")
+const btnModal = document.getElementById("find_id")
+
+btnModal.addEventListener("click", e => {
+    modal.style.display = "flex"
+})
+
+    
+const closeBtn = modal.querySelector(".close-area")
+closeBtn.addEventListener("click", e => {
+    modal.style.display = "none"
+})
+
+modal.addEventListener("click", e => {
+    const evTarget = e.target
+    if(evTarget.classList.contains("modal-overlay")) {
+        modal.style.display = "none"
+    }
+})
+
+

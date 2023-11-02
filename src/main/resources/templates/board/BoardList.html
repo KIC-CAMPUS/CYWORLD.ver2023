@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/util/font/coffee.css" />
+    <link rel="stylesheet" href="/css/myhome.css"/>
+    <style>
+        h2{
+        width: 350px;
+        margin-bottom: 4px;
+        margin-top: 15px;
+        margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="board_page">
+        <h2>게시판</h2>
+          <div style="float: right; width: 100px; margin-bottom: 10px;" >
+          <img src="/util/pic/writeBtn.png" onclick="location.href='BoardWrite.html'">		
+          </div>
+          <div class="boarsd">
+            <table class="board_view">	
+              <tr>
+                <td width="5%"></td>
+                <td width="30%"><b>제목</b></td>
+                <td width="15%"><b>작성자</b></td>
+                <td width="20%"><b>작성일</b></td>
+                <td width="10%"><b>조회</b></td>
+              </tr>
+            </table>
+              <table class="board">
+                <tr>
+                  <td width="5%">1</td>
+                  <td width="30%"><a href="BoardView.html">글제목</a></td>
+                  <td width="15%">채연</td>
+                  <td width="20%">2023-10-26</td>
+                  <td width="10%">1</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+</body>
+</html>

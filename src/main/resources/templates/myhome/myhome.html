@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org"> 
+  <head>
+    <meta charset="UTF-8" />
+    <title>MyPage</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/css/myhome.css" />
+    <link rel="stylesheet" th:if="${myItem != null}" th:href="@{${myItem.File_Fo}}" id="font"/>
+    <link rel="stylesheet" th:if="${myItem != null}" th:href="@{${myItem.File_Bg}}" id="bg"/>
+    <link rel="stylesheet" href="/util/thema/basic.css" id="thema"/>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="boxed" th:if="${myItem != null and home != null}">
+        <div class="visitor">
+          <tr id="TODAY">TODAY : 
+            <td><span th:text="${home.today}"></span></td>
+          </tr>
+          <tr id="TOTAL">TOTAL : 
+            <td><span th:text="${home.total}"></span></td>
+          </tr>
+        </div>
+        <div class="profile">
+          <div class="bookdot">
+            <div class="left_box">
+              <!--좌측 페이지-->
+              <div class="left_page">
+                <div class="profile_picture">
+    			<img class="thumnail" th:src="${home.img}" />
+				</div>
+                <div class="introduce">
+                  <textarea wrap=on onkeydown="resize(this)" onkeyup="resize(this)" 
+                  placeholder="자기소개가 없습니다." th:text="${home.introduce}" readonly></textarea>
+                </div>
+                <div class="logo">
+                  <img  src="/util/pic/logoblack.png">
+                </div>
+                <div class="myinfo">
+                  <p id="name" th:text="${customer.name}"></p>
+                  <img id="gender" th:src="@{'/util/pic/' + ${customer.gender} + '.jpg'}" th:alt="${customer.gender}"/>
+                  <p id="birth" th:text="${customer.year} + '-' + ${customer.month} + '-' + ${customer.day}"></p>
+                </div>
+                <img id="member_check" src="/util/pic/member_check_btn.jpg"
+                onclick="showPopup();">
+                <div class="friend">
+                  <select onchange="if(this.value) location.href=(this.value);">
+                    <option value="">★ 일촌 파도타기</option>
+                    <option th:if="${home.friend1 != null}" th:value="${home.friendurl1}">
+    				<td th:text="${home.friend1}"></td></option>
+                    <option th:if="${home.friend2 != null}" th:value="${home.friendurl2}">
+    				<td th:text="${home.friend2}"></td>
+    				<option th:if="${home.friend3 != null}" th:value="${home.friendurl3}">
+    				<td th:text="${home.friend3}"></td>
+					</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 메인 페이지 -->
+        <div class="main">
+          <div class="bookdot2">
+            <div class="main_box">
+              <h2><td th:text="${customer.name}"></td>님의 미니홈피</h2>
+              <h5>
+                <a href="file:///D:/gb_ldh_0630/Team%20Project/%EC%A1%B0%EB%B3%84%EA%B3%BC%EC%A0%9C_Y4K/workspace/myhome.html">
+                  http://sayworld/com/FD
+                 </a>
+               </h5>
+               <div class="main_page">
+                <!--탭 메뉴-->
+                <div class="container">
+                  <ul class="tabs">
+                    <li class="tab-link current" data-tab="home_tab"><p>홈</p></li>
+                    <li class="tab-link" id="profile" data-tab="profile_tab"><p>프로필</p></li>
+                    <li class="tab-link" id="board" data-tab="board_tab"><p>게시판</p></li>
+                    <li class="tab-link" id="visit" data-tab="visit_tab"><p>방명록</p></li>
+                    <li class="tab-link" id="setup" data-tab="setup_tab"><p>관리</p></li>
+                  </ul>
+                  <!--홈 탭-->
+                  <div id="home_tab" class="tab-content">
+                    <!--우측보드-->
+                   <div class="home_board">
+                    <div class="board_top">
+                      <div class="main_board">
+                        <p>최근 게시물</p>
+                        <tr>
+                          <td>등록된 게시물이 없습니다 </br>
+                            소식이 뜸한 친구에게 마음의 한마디를</br>
+                            남겨주세요.
+                          </td>
+                        </tr>
+                      </div>
+                      <div class="board_new">
+                        <table>
+                          <tr>
+                            <td>방명록  0/0</td>
+                            <td>게시판  0/0</td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="house_title">
+                      <h3>Miniroom</h3>
+                      <div class="house_box">
+                        <div class="minihouse" >
+                          <img th:src="@{${myItem.My_Room}}">
+                        </div>
+                        <div class="minimi" th:if="${myItem.File_Mi != null}">
+                          <img th:src="@{${myItem.File_Mi}}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="friend_comment">
+
+                    </div>
+                  </div>
+                  </div><!--home_tab-->
+                  <!--프로필 탭-->
+                  <div id="profile_tab" class="tab-content">
+                    <h2>프로필 </h2>
+                    <!--우측 페이지-->
+                    <div class="right_box">
+                      <div>
+                        <img id="insert_btn" src="/util/pic/editBtn.jpg" alt="수정하기" onclick="" >
+                        <div class="info_board">
+                          <textarea 
+                          onkeyup="autoResize(this)" 
+                          onkeydown="autoResize(this)"
+                          rows="15"
+                          placeholder="프로필을 작성해 주세요" th:text="${home.content}" readonly
+                          th:if="${home.content != null and home.content != ''}">난... ㄱ ㅏ끔... 
+                          눈물을 흘린 ㄷ ㅏ .... 
+                          ㄱ ㅏ끔은 눈물을 참을 수 없는 내가 별루ㄷ ㅏ... 
+                          맘이 ㅇ ㅏ ㅍ ㅏ 서.... 
+                          소ㄹ ㅣ치며... 울 수 있 ㄷㅏ는건.... 
+                          좋은ㄱ ㅓ ㅇ ㅑ..... 
+                          ㅁ ㅓ... 꼭 슬 ㅍ ㅓ ㅇ ㅑ만 우는 건 ㅇ ㅏ니잖 ㅇ ㅏ...^^ 
+                          난... 눈물ㅇ ㅣ ....좋다..... 
+                          ㅇ ㅏ니... 
+                          머 리가 ㅇ ㅏ닌..... 
+                          맘으로.....우는 ㄴ ㅐㄱ ㅏ 좋ㄷ ㅏ.....
+                           
+                          
+                          -- By 채연</textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div><!--profile_tab-->
+                  <!--게시판 탭-->
+                  <div id="board_tab" class="tab-content">
+                    <div class="board_page">
+<!--                      <iframe th:src="@{/board/BoardList}" ></iframe>-->
+<!--                      <iframe  th:onclick="|location.href='@{/board/BoardList}'|" ></iframe>-->
+                      <div id="board_list" ></div>
+                      </div>
+                  </div><!--board_tab-->
+                  <!--방명록 탭-->
+                  <div id="visit_tab" class="tab-content">
+                    <div class="visit_page">
+                        <p id="visit_title">오늘도 사이좋은 사람들과 행복한 하루를...</p>
+                                        <div>
+                                          <div class="visit_board">
+                                            <div class="visit_board_write">
+                                              <div class="visit_minimi">
+                                                <img src="/util/minimi/test16.gif">
+                                              </div>
+                                              <div class="visit_write">
+                                                <textarea></textarea>
+                                              </div>
+                                              <div class="visit_board_btn">
+                                                <input type="checkbox" value="비밀로하기"><p>비밀로하기</p></input>
+                                                <input type="submit" id="ment" value="확인">
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="visit_reply">
+                                            <div class="visit_board_info">
+                                                <p style="margin-left: 15px;">No.1</p>
+                                                <a style="margin-left:10px;" href="chorong.html" th:text="${home.friend1}">초롱이</a>
+                                                <img id="house_icon" src="/util/pic/house.jpg">
+                                                <p style="margin:0 10px;">(2023-10-23) </p>
+                                                <a style="margin-left: 370px;">비밀로하기</a>
+                                                <a style="margin-left: 10px;">삭제</a>
+                                            </div>
+                                            <div class="visit_board_list">
+                                                <div class="visit_board_view">
+                                                    <div class="visit_minimi">
+                                                    <img src="/util/minimi/test15.gif">
+                                                    </div>
+                                                    <div class="visitor_comment">
+                                                    <textarea readonly >잘 지내니</textarea>
+                                                    </div>
+                                                    <div class="user_comment">
+                                                    <textarea></textarea>
+                                                    </div>
+                                                    <input type="submit" id="user_comment_btn" value="확인">
+                                                </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                   </div>
+                  </div><!--visit_tab-->
+                  <!--관리 탭-->
+                  <div id="setup_tab" class="tab-content">
+                    <div class="setup_container">
+                      <ul class="setup_tabs">
+                          <li class="setup-link active" data-tab="home_info"><p>미니홈피 관리</p></li>
+                          <li class="setup-link" data-tab="basic_info"><p>프로필 관리</p></li>
+                          <li class="setup-link" data-tab="friend_info"><p>일촌관리</p></li>
+                          <li class="setup-link" data-tab="item_info"><p>아이템 설정 관리</p></li>
+                          <li class="setup-link" data-tab="manager_info"><p>관리자 정보</p></li>
+                      </ul>
+                      <div id="home_info" class="setup-content active">
+                        <h2>미니홈피 관리</h2>
+                        <div class="privacy-box">
+                          <hr>
+                          <p>게시판 공개 설정</p>
+                          <div>
+                            <ul>
+                              <li>
+                                <form name="form_profile" method="post">
+                                  <p>프로필</p>
+                                  <input type="radio" name="type" value="2" onclick="Profileview()"checked>공개
+                                  <input type="radio" name="type" value="1" onclick="Profileview()" >비공개
+                                </form>
+                              </li>
+                              <li>
+                                <form name="form_board" method="post">
+                                  <p>게시판</p>
+                                  <input type="radio" name="type" value="2" onclick="Boardview()"checked>공개
+                                  <input type="radio" name="type" value="1" onclick="Boardview()">비공개
+                                </form>
+                              </li>
+                              <li>
+                                <form name="form_visit" method="post">
+                                  <p>방명록</p>
+                                  <input type="radio" name="type" value="2" onclick="Visitview()"checked>공개
+                                  <input type="radio" name="type" value="1" onclick="Visitview()">비공개
+                                </form>
+                              </li>
+                              <li id="setup" style="display: none;">
+                                <form name="form_setup" method="post">
+                                  <p>관리</p>
+                                  <input type="radio" name="type" value="2" onclick="Setupview()">공개
+                                  <input type="radio" name="type" value="1" onclick="Setupview()" checked>비공개
+                                </form>
+                              </li>
+                            </ul>
+                          </div>
+                          <input type="submit" value="저장" onclick="Save();">
+                        </div>
+                      </div>
+                      <div id="basic_info" class="setup-content">
+                        <h2>프로필 관리</h2>
+                        <div class="profile-box">
+                          <hr>
+                          <p>프로필 이미지 변경</p>
+                          <div>
+                              <div class="profile_img">
+                                <label>사진첨부</label>
+                                <div id="add-img">
+                                  <img id="preview"/>
+                                </div>
+                                <form>
+                                  <input type="file" accept="image/*" required onchange="readURL(this);" style="margin-top: 5px; margin-left: 35px;"> 
+                                  <input type="submit" value="저장"  style="height: 30px; margin: 10px;">
+                                </form>
+                              </div>
+                          </div> 
+                          <hr>
+                          <p>프로필 메세지 변경</p>
+                          <div class="profile_text" >
+                            <div >
+                              <textarea></textarea>
+                            </div>
+                            <input type="submit" value="수정" onclick="" style="height: 30px;">
+                          </div>
+                         </div>
+                      </div>
+                      <div id="friend_info" class="setup-content">
+                        <h2>일촌관리</h2>
+                        <hr>
+                        <div>
+                          <p>일촌 목록</p>
+                          <div class="boarsd">
+                              <table class="board">
+                                <tr>
+                                  <td width="5%">1</td>
+                                  <td width="30%"><a href="BoardView.html">친구이름</a><img src="/util/pic/house.jpg"></td>
+                                  <td width="15%">채연</td>
+                                  <td width="20%">2023-10-26</td>
+                                  <td width="10%">1</td>
+                                </tr>
+                              </table>
+                            </div>
+                         </div>
+                      </div>
+                      <div id="item_info" class="setup-content">
+                        <h2>아이템 설정 관리</h2>
+                        <div class="item-box">
+                            <hr>
+                            <p>화면 테마 변경</p>
+                            <div class="thema-list">
+                              <div>
+                                <table>
+                                  <tr>
+                                    <td class="thema-menu">
+                                      <img src="/util/thema/basic.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('/util/thema/basic.png');">
+                                    </td>
+                                    <td class="thema-menu">
+                                      <img src="/util/thema/black.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('/util/thema/black.png');">
+                                    </td>
+                                    <td class="thema-menu">
+                                      <img src="/util/thema/white.png">
+                                      <input type="submit" value="변경하기" onclick="changeThema('/util/thema/white.png');">
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div> 
+                            </div>
+                          <hr>
+                          <p>배경화면 설정</p>
+                          <div class="bg-setup">
+                              <div class="bg-list">
+                                <p><보유중인> 배경></p>
+                                <table>
+                                  <tr>
+                                    <td th:if="${myItem.My_Bgphoto != null}"><img th:src="${myItem.My_Bgphoto}"></br>
+    								<button onclick="changeBackground('bg')">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                  <tr>
+                                    <td></td>
+                                    <td></td>
+                                  </tr>
+                                </table>
+                              </div>
+                          </div> 
+                          <hr>
+                          <p>폰트 설정</p>
+                          <div>
+                            <div class="font-list">
+                              <p><보유중인 폰트></p>
+                              <table>
+        					<tr th:if="${myItem.My_Fo != null}">
+   						<td>
+        				<img th:src="${myItem.My_Fo}">
+        				<br>
+        				<button onclick="changeFont('${myItem.My_Fo}')">변경</button>
+    					</td>
+							</tr>
+                              </table>
+                            </div>
+                          </div>
+                          <hr>
+                          <p>미니룸 설정</p>
+                          <div>
+                            <div class="showroom">
+                              <p>현재 적용중</p>
+                                <div class="now-miniroom">
+                                  <img src="/util/room/basic_room.png" id="use-miniroom">
+                                </div>
+                                <div class="now-minimi">
+                                  <img src="/util/minimi/basic_girl.png" id="use-minimi">
+                                </div>
+                            </div>
+                            <div class="mini_list">
+                              <div id="room_list">
+                                <p><보유중인 미니룸></p>
+                                <table>
+                                  <tr>
+                                    <td><img src="/util/room/basic_room.png"><button onclick="changeRoom('/util/room/basic_room.png')">변경</button></td>
+                                    <td><img src="/util/room/con_room.gif"><button onclick="changeRoom(/util/room/con_room.gif')">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="/util/room/forest_room.gif"><button onclick="changeRoom('/util/room/forest_room.gif')">변경</button></td>
+                                    <td><img src="/util/room/road_room.jpg"><button onclick="changeRoom('/util/room/road_room.jpg')">변경</button></td>
+                                  </tr>
+                                </table>
+                              </div>
+                              <div id="minimi">
+                                <p><보유중인 미니미></p>
+                                <table>
+                                  <tr>
+                                    <td><img src="/util/minimi/basic_girl.png"><button onclick="changeMini('/util/minimi/basic_girl.png')">변경</button></td>
+                                    <td><img src="/util/minimi/test17.gif"><button onclick="/util/minimi/test17.gif">변경</button></td>
+                                  </tr>
+                                  <tr>
+                                    <td><img src="/util/minimi/test11.gif"><button onclick="/util/minimi/test11.gif">변경</button></td>
+                                    <td><img src="/util/minimi/test12.gif"><button onclick="/util/minimi/test12.gif">변경</button></td>
+                                  </tr>
+                                </table>
+                              </div>
+                            </div>
+                            <input type="submit" value="수정" onclick="Alert();" style="height: 30px;">
+                          </div>
+                          <hr>
+                          <p>뮤직 플레이어 설정</p>
+                          <div class="music_list" >
+                            <p style="font-size: 20px; text-align: left;">추억의 BGM</p>
+                            <hr>
+                            <div class="music_thumb">
+                              <table>
+                                <tr>
+                                  <td >
+                                    <img src="/util/music/FT아일랜드 - 사랑앓이.jpg">
+                                    <a href="music.html" id="m-title">사랑앓이</a>
+                                    <p>FT아일랜드</p>
+                                  </td>
+                                  <td>
+                                    <img src="/util/music/프리스타일-Y.jpg">
+                                    <a href="music.html" id="m-title">Y(Please Tell Me Why)</a>
+                                    <p>프리스타일</p>
+                                  </td>
+                                  <td>
+                                    <img src="/util/music/전람회 - 취중진담.jpg">
+                                    <a href="music.html" id="m-title">취중진담</a>
+                                    <p>전람회</p>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                            <a href="music.html" style="text-decoration-line: none;">상점으로 이동하기-></a>
+                            <hr>
+                            <div class="my_music">
+                              <p>보유중인 음악</p>
+                              <table style="background-color: #cecece;">
+                                <tr>
+                                  <td style="width: 20%;">번호</td>
+                                  <td style="width: 40%;">곡명</td>
+                                  <td style="width: 30%;">아티스트</td>
+                                  <td style="width: 10%;"></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">1</td>
+                                  <td style="width: 40%;">사랑앓이</td>
+                                  <td style="width: 30%;">FT아일랜드</td>
+                                  <td style="width: 10%;"><button onclick="changeMusic('FT아일랜드 - 사랑앓이');">듣기</button></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">2</td>
+                                  <td style="width: 40%;">Y(Please Tell Me Why)</td>
+                                  <td style="width: 30%;">프리스타일</td>
+                                  <td style="width: 10%;"><input type="button" value="듣기" onclick="changeMusic();"></td>
+                                </tr>
+                              </table>
+                              <table id="list">
+                                <tr>
+                                  <td style="width: 20%;">3</td>
+                                  <td style="width: 40%;">취중진담</td>
+                                  <td style="width: 30%;">전람회</td>
+                                  <td style="width: 10%;"><input type="button" value="듣기" onclick="changeMusic();"></td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                      </div>
+                      </div>
+                      <div id="manager_info" class="setup-content">
+                        <h2>관리자 정보</h2>
+                        <div class="my_info">
+                          <div>
+                            <div>
+                                <table style="padding: 30px; margin: 0 auto; border-collapse: separate; border-spacing: 20px;">
+                                    <tr>
+                                        <th>아이디</th>
+                                        <td><input type="text" name="userid" required class="long" th:value="${customer.memberId}"/> 
+                                            <input type="button" value="중복확인" id="check" class="check"/></br>
+                                            <span class="fc3">영문 소문자,숫자,6~20자</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th>비밀번호</th>
+                                        <td><input type="password" name="userpw" class="long" required th:value="${customer.password}"/></br>
+                                        <span class="fc3">영문 대/소문자,숫자,특수문자 중 2가지 조합,8~20자</span></td>
+                                    </tr>
+                                    <tr>
+                                        <th>비밀번호 확인</th>
+                                        <td><input type="password" name="userpw_re" class="long required" th:value="${customer.password_re}"/>
+                                    </tr>
+                                    <tr>
+                                        <th>이름</th>
+                                        <td><input type="text" name="username" required class="long" th:value="${customer.name}"/></td>
+                                    </tr>
+                                    <tr>
+                                        <th>성별</th>
+                                        <td>
+                                            <label>
+                                                <input type="radio" name="gender" value="남자" th:checked="${customer.gender == '남자'}"> 남자
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="여자" th:checked="${customer.gender == '여자'}"> 여자
+                                            </label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>생년월일</th>
+                                        <td>
+                                            <select name="yy" id="year">
+												<option th:each="year : ${customer.year}" th:value="year" th:selected="${year == customer.year}" th:text="${customer.year}"></option>년</select>
+                                            <select name="mm" id="month">
+												<option th:each="month : ${customer.month}" th:value="month" th:selected="${month == customer.month}" th:text="${customer.month}"></option>월</select>
+                                            <select name="dd" id="day">
+												<option th:each="day : ${customer.day}" th:value="day" th:selected="${day == customer.day}" th:text="${customer.day}"></option>일</select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>휴대폰 번호</th>
+                                        <td><input type="text" name="phone1" required maxlength="11" style="width: 15em;" class="long" th:value="${customer.phone}"/>
+                                    </tr>
+                                </table>
+                                <div style="text-align: right; margin-right: 115px;">
+                                    <input type="submit" value="수정" onclick="Alert();">
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                      </div>
+                  </div>
+                    <div class="setup_left">
+                      <!--왼쪽 페이지-->
+                      <div class="setup_list">
+                      </div>
+                    </div>
+                  </div><!--setup_tab-->
+                </div><!--container-->
+              </div><!--main_page-->
+            </div>
+          </div>
+        </div>
+        <!-- 뮤직 플레이어 -->
+        <div class="music_box">
+          <div class="audio">
+            <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
+           <!-- <p>🎺🎹🎻Music Player 🎷🎸</p>
+            <MARQUEE scrolldelay="50" id="music-title"><td th:text="${myItem.My_Muname}"></MARQUEE>
+            <audio loop controls autoplay>
+              <source th:src="@{${myItem.File_1}}" type="audio/mp3">
+            </audio>-->
+            <!-- Chrome브라우저에서는 자동재생(autoplay)이 정책상 금지-->
+            <p>🎺🎹🎻Music Player 🎷🎸</p>
+            <MARQUEE scrolldelay="50" id="music-title"><td th:text="${myItem.My_Muname}" th:if="${myItem.My_Muname != null}"></MARQUEE>
+            <audio id="music" loop controls autoplay>
+              <source th:src="@{${myItem.File_Mu}}" type="audio/mp3" th:if="${myItem.File_Mu != null}">
+            </audio>
+          </div>
+          <div class="shop">
+            <input type="submit" value="상점" onclick=location.href="/items/minimi">
+          </div>
+          <div class="surfing">
+            <input type="submit" value="서핑보드" onclick="location.href='/surfing/surfingboard'"> 
+          </div>
+        </div>
+        <!-- 로그아웃 버튼 -->
+        <div class="logout" id="logoutButton">
+          <button type="submit" onclick="logout();">로그아웃</button>
+        </div>
+      </div>
+    </div>
+    <script src="/js/myhome.js"></script>
+  </body>
+</html>

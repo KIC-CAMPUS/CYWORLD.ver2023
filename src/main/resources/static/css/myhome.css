@@ -1,0 +1,967 @@
+
+  .boxes{
+    width: 100%;
+    height: 100%;
+    
+  }
+  .boxed{
+    width: 100%;
+    height: 100%;
+  }
+  
+  /*테두리 점선 */
+  .bookdot {
+    border: 2px dashed white;
+    border-radius: 9px;
+    border-right: 0px;
+    left: 15px;
+    top: 15px;
+    right: 3px;
+    bottom: 15px;
+    position: absolute;
+    z-index: 1;
+  }
+  .bookdot2{
+    border: 2px dashed white;
+    border-radius: 9px;
+    border-left: 0px;
+    left:0px;
+    top: 15px;
+    right: 15px;
+    bottom: 15px;
+    position: absolute;
+  }
+
+  /*============================================좌측 프로필===============================================*/
+  .profile{
+    background-color: #0fabc6;
+    border-radius: 10px;
+    border: 1px solid #738186;
+    border-right: 0px;
+    width: 345px;
+    height: 700px;
+    position: absolute;
+  }
+ /*방문자 수*/
+  .left_box{
+    width: 315px;
+    height: 645px;
+    background-color: #ededed ;
+    margin: 10px;
+    border-radius: 9px;
+    position: absolute;
+  }
+  
+  .visitor {
+    text-align: center;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 3;
+    left: 120px;
+    top: 20px;
+  }
+  
+  
+
+ /*좌측 박스*/
+  .left_page{
+    border-radius: 15px;
+    background-color: white;
+    width: 295px;
+    height: 585px;
+    margin: 0 auto;
+    border: solid 2px #2e5662;
+    margin-top: 45px;
+  }
+
+  
+
+  .left_box .profile_picture{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(206, 206, 255);
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom : 20px;
+    border-radius: 9px;
+    overflow: hidden;
+  }
+  /*프로필 이미지*/
+  .thumnail{
+      width:100%;
+      height:100%;
+  }
+ 
+  /*상태메세지*/
+  .introduce{
+    width: 250px;
+    margin-left: 20px;
+  }
+  .left_box .introduce textarea{
+    background-color: none;
+    border: none;
+    resize: none;
+    margin-left: 15px;
+    width: 220px;
+    height: 150px;
+    font-size: 15px;
+    border-top: 1px dashed #373b3c;
+    border-bottom: 1px dashed #373b3c;
+    resize: none;
+  }
+  .left_box .introduce textarea:focus{
+    outline: none;
+  }
+  
+
+  /*좌측 로고*/ 
+  .logo{
+    margin-left: 40px;
+    margin-top: 15px;
+  }
+  .logo img{
+    width: 200px;
+  }
+
+  /*나의 정보*/
+  .myinfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 190px;
+    height: 30px;
+  }
+
+  .myinfo #name{
+    font-size: 17px;
+  }
+
+  .myinfo #gender{
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+  .myinfo #birth{
+    font-size: 13px;
+    color: #767676;
+  }
+  
+  #member_check{
+    width: 85px;
+    margin: auto 30px;
+    cursor: pointer;
+  }
+.friend{
+  margin-left:30px;
+}
+.friend select {
+  width: 230px;
+  height: 30px;
+  border: solid 1px;
+  resize: none;
+  margin: 0 auto;
+  background-color: plum;
+  
+}
+
+
+
+
+  
+
+   /*============================================메인 홈피=========================================*/
+  .main {
+    background-color: #0fabc6;
+    border-radius: 10px;
+    border: 1px solid #738186;
+    border-left: 0px;
+    width: 850px;
+    height: 700px;
+    margin-left: 345px;
+    position: absolute;
+  }
+  
+  .main_box{
+    width: 825px;
+    height: 645px;
+    right:0px;
+    background-color: #ededed;
+    margin: 10px;
+    border-radius: 9px;
+    position: absolute;
+  }
+  .main_box h2 {
+    width: 350px;
+    margin-bottom: 4px;
+    margin-top: 15px;
+    margin-left: 30px;
+  }
+  .main_box h5 {
+    margin-bottom: 0px;
+    margin-top: -15px;
+    margin-right: 26px;
+    float: right;
+  }
+  .main_box h5 a{
+    text-decoration-line: none;
+    color: inherit;
+  }
+
+/*우측 탭 메뉴 버튼*/
+ul {
+  display:flex; 
+  align-content:flex-start; 
+  flex-direction:column; 
+  flex-wrap:wrap; 
+  overflow:auto;
+  }
+
+ul.tabs{
+  margin: 0px;
+    padding: 0px;
+    list-style: none;
+    position: absolute;
+    right: -62px;
+    bottom: 360px;
+    text-align: center;
+}
+
+ul.tabs li{
+  background-color: #268EA9;
+  color: #81D8E9;
+  display: inline-block;
+  cursor: pointer;
+  width: 65px;
+  height: 40px;
+  border-radius: 0px 7px 7px 0px;
+  font-size: 15px;
+  border: solid 2px #2e5662;
+  margin-bottom: 1px;
+}
+
+.tabs li p{
+  margin : 10px auto;
+}
+
+/*선택 항목*/
+ul.tabs li.current{
+  color: #494949;
+  background: white;
+  border: solid 2px #2e5662;
+  border-left: none;
+}
+
+.tab-content{
+  display: none;
+  padding: 15px;
+}
+
+.tab-content.current{
+  display: inherit;
+  overflow: auto;
+}
+  
+/*=============================홈 탭=============================*/
+  #home_tap{
+    width: 805px;
+    height: 580px;
+  }
+
+  .home_board{
+    height: 650px;
+  }
+
+  #profile_tap{
+    width: 805px;
+    height: 580px;
+  }
+  .main_page{
+    border-radius: 15px;
+    background-color: white;
+    width: 810px;
+    height: 585px;
+    margin: 0 auto;
+    border: solid 2px #2e5662;
+  }
+/*상단 게시판*/
+  .main_box .board_top{
+    height: 150px;
+    width: 780px;
+    margin: 0px auto;
+  }
+
+  
+/*최근 게시글*/
+  .main_box .main_board{
+    height: 150px;
+    width: 350px;
+    text-align: center;
+    margin: 20px;
+    margin-top: 0;
+    float: left;
+  }
+
+  .main_box .main_board p{
+    text-align: left;
+    border-bottom: 1px dashed #373b3c;
+    margin-left: 35px;
+  }
+
+
+/*게시판 리스트*/
+  .main_box .board_new{
+    height: 120px;
+    width: 350px;
+    text-align: center;
+    margin: 20px;
+    margin-top: 35px;
+    float: left;
+  }
+
+  .board_new table{
+    width: 335px;
+    height: 120px;
+    text-align: center;
+    border: dashed 1px #373b3c;
+    border-right: none;
+    border-left: none;
+  }
+
+  .board_new table tr{
+    text-align: center;
+    border: dashed 1px #373b3c;
+  }
+
+  /*하우스 제목*/
+  .house_title{
+    width: 700px;
+    height: 40px;
+    margin: 0 auto;
+    margin-top: 15px;
+    border-bottom: solid 1px;
+  }
+
+  .house_title h3{
+    text-align: center;
+    width: 100px;
+    margin: 0;
+    border-bottom: none;
+    border-radius: 8px;
+  }
+
+/*미니미 하우스*/
+.house_box{
+    position : relative;
+  
+}
+
+  .main_box .minihouse{
+    width: 700px;
+    height: 350px;
+    background-color: rgb(206, 206, 255);
+    margin : 0 auto;
+    margin-top: 20px;
+    position: absolute;    
+  }
+
+ 
+  .minihouse img{
+    width:100%;
+      height:100%;
+      object-fit:cover;
+   
+  }
+
+  /*미니미*/
+  .main_box .minimi{
+    width: 150px;
+    height: 150px;
+    float: left;
+    position: absolute;
+    left: 270px;
+    top: 170px;
+  }
+  .minimi img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+  }
+  
+
+/*=============================프로필 탭 ==================================*/
+
+.info_board textarea{
+  margin: auto 30px;
+    margin-top: 40px;
+    width: 700px;
+    border: none;
+    font-size: 15px;
+    resize: none;
+    text-align: center;
+    border-top: 2px solid #cacaca;
+    border-bottom: 2px solid #cacaca;
+    overflow:hidden;
+}
+.info_board textarea:focus{
+ outline: none;
+}
+
+#insert_btn{
+  font-size: 13px;
+    text-align: center;
+    position: absolute;
+    right: 70px;
+   cursor: pointer;
+}
+/*=====================================게시판 탭================================*/
+.board img{
+  float: right;
+}
+
+.board tr{
+ font-size: 10pt; 
+ text-align: center;
+}
+.board_view{
+  width: 700px;
+  height: 40px;
+  border-top: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.board {
+  width: 700px;
+  height: 40px;
+  border-top: 2px solid #e6e6e6;
+  border-bottom: 2px solid #e6e6e6;
+  margin: 0 auto;
+}
+
+.board_page iframe{
+  width:780px;
+  height:490px;
+  background  : white;
+  position: absolute;
+  border: none;
+}
+
+
+/*======================================방명록 탭==================================*/
+
+#visit_title{
+  width: 700px;
+  height: 50px;
+  border: 1px solid;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+.visit_page{
+  height: 500px;
+  width: 750px;
+   margin: 0 auto;
+}
+.visit_page iframe{
+  width:780px;
+  height:490px;
+  background  : white;
+  position: absolute;
+  border: none;
+}
+
+.visit_board{
+  width: 700px;
+  height: 220px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin: 20px auto;
+}
+
+.visit_board_write{
+  margin: 10px auto;
+    width: 660px;
+    background-color: #cacaca;
+    height: 200px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.visit_reply{
+  width: 700px;
+  height: 200px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin: 20px auto;
+}
+
+.visit_board #ment{
+  width: 50px;
+  height: 25px;
+}
+
+.visit_board_btn{
+  display: flex;
+  margin:0 15px;
+  width: 700px;
+  height: 10px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+.visit_board_btn p{
+  margin-right: 490px;
+}
+
+
+.visit_minimi{
+  width: 150px;
+  height: 150px;
+  margin-bottom: 20px;
+}
+.visit_minimi img{
+  width: 120px;
+  height: 120px;
+  margin: 15px;
+}
+.visit_write{
+    width: 460px;
+    height: 140px;
+}
+.visit_write textarea{
+  width: 100%;
+  height: 100%;
+  resize: none;
+  font-size: 15px;
+}
+.visit_board_info{
+  margin: 0 auto;
+  width: 700px;
+  height: 30px;
+  background: #e7e7e7;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+
+
+.visit_board_view{
+  margin: -15px auto;
+      width: 660px;
+      height: 180px;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+}
+.visitor_comment{
+    width: 460px;
+    height: 120px;
+}
+.visitor_comment textarea{
+  width: 100%;
+  height: 100%;
+  resize: none;
+  border: none;
+  font-size: 15px;
+}
+.visitor_comment textarea:focus{
+outline: none;
+}
+
+.user_comment{
+width: 580px;
+height: 90px;
+margin-top: 40px;
+}
+.user_comment textarea{
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  resize: none;
+}
+#user_comment_btn{
+  margin: 0px auto;
+    margin-top: 46px;
+    vertical-align: bottom;
+    height: 96px;
+    width: 60px;
+    font-size: 14px;
+}
+
+/*===================================관리===============================*/
+.setup_tabs{
+  position: absolute;
+    left: -300px;
+    top: 40px;
+    z-index: 3;
+}
+.setup_left{
+  width: 315px;
+  height: 645px;
+  left: -325px;
+  bottom: -10px;
+  background-color: #ededed;
+  margin: 10px;
+  border-radius: 9px;
+  position: absolute;
+  z-index: 2;
+}
+
+.setup_list{
+  border-radius: 15px;
+  background-color: white;
+  width: 295px;
+  height: 585px;
+  margin: 0 auto;
+  border: solid 2px #2e5662;
+  margin-top: 45px;
+}
+
+
+
+ul.setup_tabs li{
+  cursor:pointer;
+}
+ul.setup_tabs li.active{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.setup_tabs{
+  list-style:none;
+}
+
+.setup-content{
+  display: none;
+  padding: 15px;
+}
+
+.setup-content.active{
+  display: inherit;
+  overflow: auto;
+}
+.setup-content iframe{
+  border: none;
+  width: 750px;
+  height: 480px;
+}
+.my_info{
+  text-align: center;
+  width: 750px;
+  height: 480px;
+}
+.privacy-box{
+  height : 500px;
+  overflow: auto;
+  font-weight: bold;
+}
+
+
+/* 프로필 관리*/
+.profile-box{
+  height: 500px;
+  overflow: auto;
+  font-weight: bold;
+}
+
+.profile_img{
+    width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile_img form{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-img{
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  border-radius: 8px;
+}
+#add-img img{
+  width: 100%;
+  height: 100%;
+}
+
+
+#file {
+  margin-top: 5px;
+  margin-left: 35px;
+}
+
+
+.profile_text{
+  text-align: center;
+}
+
+.profile_text textarea{
+resize: none;
+width: 220px;
+height: 150px;
+font-size: 15px;
+}
+
+
+
+/*미니홈피 관리*/
+
+.thema-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thema-list img{
+  height :250px;
+  border-radius: 3px;
+}
+
+.thema-menu{
+  display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.thema-menu input{
+  margin-left: 15px;
+  height: 30px;
+}
+
+.showroom{
+  text-align: center;
+}
+
+
+/*아이템 설정 관리*/
+.menu a{
+  cursor:pointer;
+}
+.menu .hide{
+  display:none;
+}
+
+.item-box{
+  height: 500px;
+  overflow: auto;
+ font-weight: bold;
+}
+.bg-setup{
+  width: 700px;
+  height: 500px;
+}
+
+.now-bg{
+  margin-bottom: 50px;
+  width: 250px;
+  height: 150px;
+}
+
+.now-bg img{
+  width: 100%;
+  height:100%;
+}
+
+.bg-list{
+  text-align: center;
+}
+
+.bg-list img{
+  width: 250px;
+  height: 150px;
+}
+
+.bg-list table{
+  border-collapse: separate;
+  border-spacing: 30px 15px;
+  margin: 0 auto;
+}
+
+.font-list{
+  text-align: center;
+}
+.font-list table{
+  border-collapse: separate;
+  border-spacing: 30px 15px;
+  margin: 0 auto;
+}
+
+/*미니룸 설정*/
+
+.showroom{
+  height: 240px;
+}
+
+.now-minimi{
+  position: relative;
+  top: -120px;
+}
+
+.mini_list{
+  height: 400px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.mini_list p{
+  height: 16px;
+}
+
+#room_list, #minimi_list{
+overflow: auto;
+width: 350px;
+text-align: center;
+border-collapse: separate;
+border-spacing: 30px 15px;
+}
+#room_list, #minimi_list table {
+  margin: 0 auto;
+}
+
+
+#minimi_list {
+  margin: 10px auto;
+  border-left: 2px solid #cecece;
+}
+#minimi_list  table td{
+  width: 130px;
+}
+
+
+#room_list table td{
+  width: 170px;
+  height: 100px;
+}
+
+
+#room_list table td img{
+  width: 100%;
+  height: 100%;
+}
+
+
+/*뮤직 플레이어*/
+.music_list{
+  text-align: right;
+  margin: 0 auto;
+}
+.music_thumb{
+  text-align: center;
+}
+.music_thumb table{
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 30px 15px;
+}
+.music_thumb table td{
+  width: 200px;
+}
+.music_thumb table td img{
+  width: 100%;
+}
+.music_thumb a#m-title {
+  font-size: 18px;
+  text-decoration-line : none;
+}
+.my_music{
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 50px;
+  height: 250px;
+}
+.my_music table{ 
+  width: 700px;
+  margin: 0 auto;
+}
+.my_music table .list{
+  border: 1px dashed #000;
+  border-left: none;
+  border-right: none;
+  height: 30px;
+}
+
+
+/*관리자 정보*/
+.fc3{
+  font-size: 12px;
+}
+
+.my_info input.long{
+height: 18px;
+}
+.my_info tr{
+  font-size: 16px;
+}
+
+
+  /*============================================뮤직 플레이어===============================================*/
+
+  .music_box{
+    width: 250px;
+    height: 200px;
+    background-color:#ededed;
+    border : solid 1px #738186;
+    position: absolute;
+    left: 1250px;
+    top: 5px;
+  }
+
+.audio{
+  text-align: center;
+}
+.audio audio{
+  width: 250px;
+  height: 50px;
+  color: #0fabc6;
+  margin-top: 10px;
+}
+
+
+
+/*이동 버튼*/
+.shop input,.surfing input{
+  float: left;
+  width: 100px;
+  height: 50px;
+  margin: auto 12px;
+  font-size: 18px;
+}
+
+/*로그아웃 버튼*/
+.logout button{
+  font-size: 18px;
+  width: 250px;
+  height: 50px;
+  background-color: #ededed;
+  position: absolute;
+  left: 1250px;
+  top: 210px;
+  padding: 0;
+  border: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+

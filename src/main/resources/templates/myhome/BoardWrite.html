@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/util/font/coffee.css" />
+    <link rel="stylesheet" href="/css/myhome.css"/>
+</head>
+<body>
+    <div>
+        <div style="background: #cecece; text-align: center; height: 30px; font-size: 15px; width: 100%; font-weight: bold;">
+            <p>게시글 업로드</p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: flex-start; height: 15px; margin: 20px 0px;">
+            <p style="margin-right: 15px; ">제목</p>
+            <input type="text" id="title" style="width: 700px; height: 20px; font-size: 15px;">
+        </div>
+        <div>
+           <p>내용</p>
+            <textarea style="width: 740px; height: 300px; font-size: 15px; resize: none;"></textarea>
+        </div>
+        <div style="margin-left: 5px;">
+            <p>업로드할 파일을 선택해주세요</p>
+            <input type="file" id="file">
+        </div>
+        <div style="text-align: right;">
+            <input type="submit" value="작성완료" onclick="location.href='BoardList.html'" ></input>
+            <input type="button" value="취소" onclick="location.href='BoardList.html'"></input>
+        </div>
+    </div>
+    <script src="/js/myhome.js"></script>
+</body>
+</html>

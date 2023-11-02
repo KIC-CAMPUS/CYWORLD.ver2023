@@ -1,0 +1,26 @@
+.main {
+    background-color: #000000;
+    border-left : 0px;
+  }
+  .profile{
+    background-color: #000000;
+    border-right : 0px;
+  }
+
+  ul.tabs li{
+    background-color: #000000;
+    border: solid 2px #000000;
+    border-left: solid 2px #000000; ;
+    color: #ffffff;
+    
+  }
+  ul.tabs li.current{
+    color: #000000;
+    background: white;
+    border: solid 2px #000000;
+    border-left: none;
+  }
+
+  .main_page, .left_page{
+    border: solid 2px #000000;
+  }

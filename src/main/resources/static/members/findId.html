@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="birth.js"></script>
+<style>
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+	
+.info {
+	font-family: 'NeoDunggeunmo', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}	
+
+img {
+    max-width: 150px;
+    vertical-align: middle;
+}
+
+.start {
+	font-size: 25px;
+	font-family: 'NeoDunggeunmo', sans-serif;
+	color: blue;
+	
+}
+
+.container {
+     display: inline-block;
+}
+
+.msg {
+    font-size: 20px;
+}
+
+.box {
+    background-color: #F2F2F2;
+    padding: 20px;
+    font-size: 20px;
+    text-align: left !important;
+    border-radius: 10px;
+  	display: flex; 
+    align-items: center;
+}
+
+.box-content {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between;
+    width: 100%;
+}
+
+.box-text {
+    font-size: 20px;
+    color: blue;
+}
+
+.box-logo {
+    background-image: url('for.png');
+    background-size: cover; 
+    width: 100px; 
+    height: 100px;
+}
+
+.box-warn {
+    background-image: url('warn.png');
+    background-size: cover; 
+    width: 130px; 
+    height: 110px;
+}
+
+
+.fc1 {
+	color: blue;
+}
+.fc2 {
+	color: red;
+}
+
+.fc3 {
+	color : gray;
+	font-size: 12px;
+}
+
+.fc4{
+	font-size: 18px;
+	color: blue;
+}
+
+
+
+
+table {
+   border-collapse: separate;
+   border-spacing:  30px 15px;
+}
+
+table th {
+    text-align: right;
+}
+
+
+.button-container {
+  	overflow: auto; 
+}
+
+.join {
+    float: left;
+    margin-right: 50px;
+    background-color: #98AFC7; 
+    color: white; 
+    padding: 20px 30px; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.ID_check {
+    float: left;
+    margin-right: 50px;
+    background-color: #98AFC7; 
+    color: white; 
+    padding: 20px 30px; 
+    border: none; 
+    cursor: pointer; 
+}
+
+.cancel {
+    float: right;
+     background-color: #98AFC7; 
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.check {
+	background-color: #BBBBBB; 
+    color: white;
+    padding: 5px 20px; 
+    border: none; 
+    cursor: pointer;
+}
+    
+.long {
+	width: 250px;
+	height: 25px;
+}
+
+.form-control{
+	width: 250px;
+	height: 25px;
+}
+
+.welcome {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    margin-top: 150px;
+    margin-bottom: 150px;
+    font-family: 'NeoDunggeunmo', sans-serif;
+    line-height: 1.3;
+}
+
+.agree{
+	font-size: 20px;
+}
+
+
+
+
+
+</style>
+</head>
+<body>
+	<img src="logo.png" alt="세이월드 로고">
+	<br/>
+	<div class="info">
+		세이월드 ID찾기
+	</div>
+	<br/>
+	
+	<br/><br/>
+	
+	
+	
+	<div class="container">
+			<div class="start">
+				<strong>세이월드 ID찾기를 지금 시작합니다! </strong>	
+			</div>
+			<br/>
+			<div class="msg">
+				세이월드 ID를 확인하기 위해 회원 정보를 입력해주세요. <br/>
+				회원 정보가 일치하면 바로 세이월드 ID를 확인할 수 있어요!
+			</div>
+			<br/><br/>	
+			
+			<div class="box">
+		    <div class="box-content">
+		        <div class="box-text">
+				    <span class="fc4">안심하세요!</span>
+				    <br/>
+				   
+				    <br/>
+				   <span style="color: black;"> ID 찾기에 입력하신 회원 정보는 ID 찾기를 위한 목적 <br/>
+				    이외에 정보를 수집, 저장하지 않아요.</span>
+				</div>
+		        <div class="box-logo"></div>
+		    </div>
+		</div>
+		
+		<br/>
+		<hr/>
+		<br/>
+	
+	
+		<form action="" id="myForm" th:action th:object="${customer}" method="post">
+		    <div class="form-group" style="font-size: 18px; margin-bottom: 20px;">
+		        <label th:for="name">이름<span class="fc2">✔ </span></label> <br/>
+		        <input type="text" th:field="*{name}" class="form-control" />
+		    </div>
+		
+		   <div class="form-group" style="font-size: 18px; margin-bottom: 20px;">
+		        <label th:for="phone">휴대폰 번호<span class="fc2">✔ </span></label> <br/>
+		        <input type="text" name="phone1" th:field="*{phone1}" required maxlength="4" style="width: 5em; text-align: center;" class="long"/> -
+		        <input type="text" name="phone2" th:field="*{phone2}" required maxlength="4" style="width: 5em; text-align: center;" class="long"/> -
+		        <input type="text" name="phone3" th:field="*{phone3}" required maxlength="4" style="width: 5em; text-align: center;" class="long"/>
+		    </div>
+		
+		    <div class="form-group" style="font-size: 18px; margin-bottom: 20px;">
+		        <label th:for="birth">생년월일<span class="fc2">✔ </span></label> <br/>
+		        <select name="year" id="year" style="font-size: 18px;">
+   				<option th:each="year : ${years}" th:value="${year}" th:text="${year}">선택</option>
+				</select>년
+				<select name="month" id="month" style="font-size: 18px;">
+    			<option th:each="month : ${months}" th:value="${month}" th:text="${month}">선택</option>
+				</select>월
+				<select name="day" id="day" style="font-size: 18px;">
+    			<option th:each="day : ${days}" th:value="${day}" th:text="${day}">선택</option>
+				</select>일
+		    </div>
+		</form>
+		
+		
+		<br/>
+		<hr/>
+		<br/>
+		
+		<div>
+			<input type="checkbox" name="agree" id="agree" style="transform: scale(1.5);" />
+			<label class="agree">&nbsp위 개인정보가 소유자 본인이 입력한 것이 맞으며, 제 사진이 <br/>
+							&nbsp&nbsp&nbsp 존재한다면 사진도 함께 찾아주세요.</label>
+		</div>	
+		<br/>
+		<div class="box">
+		    <div class="box-content">
+				타인의 정보를 부정 사용하는 자는 적법한 절차에 따라<br/>
+				민,형사상 책임을 물을 수 있습니다. 만약, 타인의 비밀번호를<br/>
+				이용하려는 이용자는, 지금 즉시 중단하시기를 바랍니다.
+			</div>
+			<div class="box-warn"></div>
+		</div>
+		
+		
+	</div>
+	
+  
+	
+		<div class="button-container" style="padding-top: 40px;">
+		    <button class="ID_check" type="submit" onclick="findId_click()" style="font-size: 20px;">ID 확인하기  ></button>
+		    <button class="cancel" onclick="location.href='index.html'" th:onclick="|location.href='@{/members/login}'|"
+		     type="button" style="font-size: 20px;">돌아가기  ></button>
+		</div>
+  
+</body>
+
+</html>
